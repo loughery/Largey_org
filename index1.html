@@ -22,21 +22,35 @@
     }
 
     h1 {
-      font-size: clamp(1rem, 2.5vw, 2rem); /* half size */
+      font-size: clamp(1rem, 2.5vw, 2rem);
       margin: 0;
     }
 
+    a {
+      display: block;
+      font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+      margin-top: 0.4em;
+      color: #000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     p {
-      font-size: clamp(0.8rem, 1.5vw, 1rem);
-      margin-top: 0.5em;
+      font-size: clamp(0.75rem, 1.3vw, 0.9rem);
+      margin-top: 0.6em;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>Gale P. Largey, PhD<br>
-         www.YouTube.com/@GaleLargey</h1>   
+    <h1>Gale P. Largey, PhD</h1>
+    <a href="https://www.youtube.com/@GaleLargey" target="_blank">
+      www.YouTube.com/@GaleLargey
+    </a>
     <p>&copy; 2026</p>
   </div>
 </body>
