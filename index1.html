@@ -8,7 +8,7 @@
   <style>
     body {
       margin: 0;
-      background-color: #F5F1E8; /* eggshell white */
+      background-color: #F5F1E8;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -45,10 +45,19 @@
       margin: 0.8em auto;
     }
 
-    a {
-      display: block;
+    .link-line {
       font-size: clamp(0.9rem, 1.6vw, 1.1rem);
       margin-top: 0.3em;
+    }
+
+    .live-label {
+      letter-spacing: 0.15em;
+      font-variant: small-caps;
+      color: #444;
+      margin-right: 6px;
+    }
+
+    a {
       color: #2f4f7f; /* muted academic blue */
       text-decoration: none;
     }
@@ -65,9 +74,7 @@
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -77,9 +84,14 @@
     <div class="coming">Coming soon...</div>
     <h1>Gale P. Largey, PhD</h1>
     <div class="divider"></div>
-    Live: <a href="https://www.youtube.com/@GaleLargey" target="_blank">
-      www.YouTube.com/@GaleLargey
-    </a>
+
+    <div class="link-line">
+      <span class="live-label">LIVE</span>
+      <a href="https://www.youtube.com/@GaleLargey" target="_blank">
+        www.YouTube.com/@GaleLargey
+      </a>
+    </div>
+
     <p>&copy; 2026</p>
   </div>
 </body>
