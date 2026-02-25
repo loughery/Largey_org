@@ -1,26 +1,46 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>The Pictoral Essays of Gale Largey | Official Website</title>
 <title>Contact | The Works of Gale Largey</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="The works of Gale Largey — reflections, storytelling, and cultural history.">
 
 <style>
 body {
   margin: 0;
   background-color: #F5F1E8;
+  height: 100vh;
   min-height: 100vh;
   font-family: "Times New Roman", Times, serif;
   color: #000;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+}
+
+/* TOP HALF */
+.quote-half {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 10%;
+  opacity: 0;
+  animation: fadeIn 3s ease forwards;
   padding: 20px 0;
   text-align: center;
   opacity: 1;
   transition: opacity .8s ease;
 }
 
+.quote {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #555;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
 .fade-out { opacity: 0; }
 
 .form-container {
@@ -29,6 +49,16 @@ body {
   text-align: left;
 }
 
+/* BOTTOM HALF */
+.content-half {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2vh;
+  opacity: 0;
+  animation: fadeIn 3s ease forwards;
+  animation-delay: 3s;
 h1 {
   text-align: center;
   font-size: clamp(1.4rem, 4vw, 2rem);
@@ -36,6 +66,13 @@ h1 {
   margin-bottom: 1em;
 }
 
+.intro {
+  font-size: clamp(0.95rem, 1.9vw, 1.3rem);
+  font-weight: 500;
+  color: #666;
+  letter-spacing: 0.12em;
+  text-transform: capitalize;
+  margin-bottom: 0.6em;
 /* larger labels */
 label {
   display: block;
@@ -46,6 +83,10 @@ label {
   transition: color .2s ease;
 }
 
+h1 {
+  font-size: clamp(1.2rem, 3vw, 2.4rem);
+  margin: 0;
+  letter-spacing: 0.05em;
 /* fully responsive inputs */
 input, textarea {
   width: 100%;
@@ -61,17 +102,30 @@ input, textarea {
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 
+.divider {
+  width: 60px;
+  height: 1px;
+  background-color: #bbb;
+  margin: 0.8em auto;
 textarea {
   min-height: 140px;
   resize: vertical;
 }
 
+.link-line {
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  margin-top: 0.4em;
 /* label darkens when active */
 label:has(+ input:focus),
 label:has(+ textarea:focus) {
   color: #222;
 }
 
+.label {
+  letter-spacing: 0.15em;
+  font-variant: small-caps;
+  color: #444;
+  margin-right: 6px;
 /* focus highlight */
 input:focus, textarea:focus {
   outline: none;
@@ -79,6 +133,10 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
 }
 
+a {
+  color: #2f4f7f;
+  text-decoration: none;
+  transition: opacity .3s ease;
 /* placeholder fade */
 ::placeholder {
   color: #777;
@@ -86,19 +144,29 @@ input:focus, textarea:focus {
   transition: opacity .25s ease;
 }
 
+a:hover {
+  opacity: 0.7; /* subtle hover */
 input:focus::placeholder,
 textarea:focus::placeholder {
   opacity: 0;
 }
 
+.footer {
 /* button styling */
 .button-row {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 2em;
+  font-size: 0.8rem;
+  color: #555;
+  letter-spacing: 0.05em;
 }
 
+/* fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 button {
   padding: 12px 20px;
   border: 1px solid #888;
@@ -112,16 +180,29 @@ button {
   transition: opacity .2s ease;
 }
 
+/* PRINT STYLING */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
 button:hover {
   opacity: .75;
 }
 
+  a {
+    color: black;
+    text-decoration: none;
+  }
 /* keyboard focus */
 :focus-visible {
   outline: 2px solid #2f4f7f;
   outline-offset: 2px;
 }
 
+  .quote-half {
+    padding: 0;
+  }
 /* footer */
 .footer {
   margin-top: 2.5em;
@@ -131,6 +212,9 @@ button:hover {
   text-align: center;
 }
 
+  .footer {
+    margin-top: 3em;
+  }
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
@@ -140,6 +224,12 @@ button:hover {
 
 <body>
 
+<div class="quote-half">
+  <div class="quote">
+    Sometimes, when telling a story,<br>
+    the storyteller<br>
+    becomes a story.
+  </div>
 <div class="form-container">
 
 <h1>Contact Gale</h1>
@@ -182,6 +272,25 @@ button:hover {
 <button type="button" onclick="window.location.href='index.html'">Return Home</button>
 </div>
 
+<div class="content-half">
+  <div class="intro">The Pictoral Essays of</div>
+  <h1>Gale P. Largey, PhD</h1>
+  <div class="divider"></div>
+
+  <div class="link-line">
+    <span class="label">Visit</span>
+    <a href="https://www.youtube.com/@GaleLargey">YouTube Channel</a>
+  </div>
+
+  <div class="link-line">
+    <span class="label">Contact</span>
+    <a href="contact.html">Contact Page</a>
+  </div>
+
+  <div class="footer">
+    (c) 2026&nbsp;&nbsp;|&nbsp;&nbsp; galelargey.org
+    </a>
+  </div>
 <div class="footer">
   (c) 2026&nbsp;&nbsp;|&nbsp;&nbsp;galelargey.org
 </div>
