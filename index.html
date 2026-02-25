@@ -1,4 +1,4 @@
-<!DOCTYPE html><a></a>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,26 +9,45 @@
     body {
       margin: 0;
       background-color: #F5F1E8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
-      text-align: center;
       font-family: "Times New Roman", Times, serif;
       color: #000;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr; /* top third, middle, bottom third */
+      text-align: center;
     }
 
-    .container {
-      width: 90%;
+    /* QUOTE AREA (top third) */
+    .quote {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10%;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #555;
+      letter-spacing: 0.03em;
+      line-height: 1.4;
       opacity: 0;
       animation: fadeIn 3s ease forwards;
     }
 
+    /* LOWER CONTENT (upper area of lower third) */
+    .container {
+      grid-row: 3;
+      align-self: start;
+      padding-top: 2vh;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 1s;
+    }
+
     .intro {
-      font-size: clamp(0.9rem, 1.8vw, 1.2rem); /* 25% smaller */
+      font-size: clamp(0.9rem, 1.8vw, 1.2rem);
       font-weight: lighter;
       color: #777;
-      letter-spacing: 0.18em; /* cinematic spacing */
+      letter-spacing: 0.18em;
       margin-bottom: 0.6em;
     }
 
@@ -45,12 +64,12 @@
       margin: 0.8em auto;
     }
 
-    .link-line {
+    .link-Visit {
       font-size: clamp(0.9rem, 1.6vw, 1.1rem);
       margin-top: 0.3em;
     }
 
-    .live-label {
+    .Visit-label {
       letter-spacing: 0.15em;
       font-variant: small-caps;
       color: #444;
@@ -81,13 +100,18 @@
 </head>
 
 <body>
+
+  <div class="quote">
+    Sometimes when telling a story, the story teller becomes a story.
+  </div>
+
   <div class="container">
     <div class="intro">the works of</div>
     <h1>Gale P. Largey, PhD</h1>
     <div class="divider"></div>
 
-    <div class="link-line">
-      <span class="live-label">LIVE</span>
+    <div class="link-Visit">
+      <span class="Visit-label">Visit</span>
       <a href="https://www.youtube.com/@GaleLargey" target="_blank">
         www.YouTube.com/@GaleLargey
       </a>
@@ -95,5 +119,6 @@
 
     <p>&copy; 2026</p>
   </div>
+
 </body>
 </html>
