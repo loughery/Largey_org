@@ -21,14 +21,14 @@
     .container {
       width: 90%;
       opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
+      animation: fadeIn 3s ease forwards;
     }
 
-    .coming {
-      font-size: clamp(1.2rem, 2.4vw, 1.6rem); /* doubled size */
+    .intro {
+      font-size: clamp(0.9rem, 1.8vw, 1.2rem); /* 25% smaller */
       font-weight: lighter;
       color: #777;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.18em; /* cinematic spacing */
       margin-bottom: 0.6em;
     }
 
@@ -74,6 +74,7 @@
     }
 
     @keyframes fadeIn {
+      from { opacity: 0; }
       to { opacity: 1; }
     }
   </style>
@@ -81,18 +82,18 @@
 
 <body>
   <div class="container">
-    <div class="coming">the works of</div>
+    <div class="intro">the works of</div>
     <h1>Gale P. Largey, PhD</h1>
     <div class="divider"></div>
 
     <div class="link-line">
-      <span class="live-label">Visit:</span>
+      <span class="live-label">LIVE</span>
       <a href="https://www.youtube.com/@GaleLargey" target="_blank">
         www.YouTube.com/@GaleLargey
       </a>
     </div>
 
     <p>&copy; 2026</p>
-  </div><a></a>
+  </div>
 </body>
 </html>
