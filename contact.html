@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Contact | The Works of Gale Largey</title>
+<title>Contact | The Pictorial Essays of Gale Largey</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+html {
+  background-color: #F5F1E8;
+}
+
 body {
   margin: 0;
   background-color: #F5F1E8;
@@ -15,7 +19,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  padding: 28px 0;
   text-align: center;
   opacity: 1;
   transition: opacity .8s ease;
@@ -25,7 +29,7 @@ body {
 
 .form-container {
   width: 90%;
-  max-width: 420px;   /* caps width on large screens */
+  max-width: 420px;
   text-align: left;
 }
 
@@ -33,53 +37,55 @@ h1 {
   text-align: center;
   font-size: clamp(1.4rem, 4vw, 2rem);
   letter-spacing: 0.05em;
-  margin-bottom: 1em;
+  margin-bottom: .4em;
 }
 
-/* larger labels */
+.reassurance {
+  text-align: center;
+  font-size: .95rem;
+  color: #555;
+  margin-bottom: 1.2em;
+  line-height: 1.5;
+}
+
+/* Larger labels */
 label {
   display: block;
-  margin-top: 1.3em;
+  margin-top: 1.6em; /* increased spacing */
   font-size: 1.05rem;
   letter-spacing: 0.08em;
   color: #333;
-  transition: color .2s ease;
 }
 
-/* fully responsive inputs */
+/* Indented responsive inputs */
 input, textarea {
-  width: 100%;
+  width: calc(100% - 14px);
+  margin-left: 14px;
   padding: 14px 12px;
-  margin-top: 6px;
+  margin-top: 8px;
   border: 1px solid #bbb;
   border-radius: 5px;
   background: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 1.05rem;
-  box-sizing: border-box;  /* ensures proper mobile sizing */
+  box-sizing: border-box;
   caret-color: #2f4f7f;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 textarea {
-  min-height: 140px;
+  min-height: 150px;
   resize: vertical;
 }
 
-/* label darkens when active */
-label:has(+ input:focus),
-label:has(+ textarea:focus) {
-  color: #222;
-}
-
-/* focus highlight */
+/* Focus highlight */
 input:focus, textarea:focus {
   outline: none;
   border-color: #666;
   box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
 }
 
-/* placeholder fade */
+/* Placeholder fade */
 ::placeholder {
   color: #777;
   font-style: italic;
@@ -91,23 +97,24 @@ textarea:focus::placeholder {
   opacity: 0;
 }
 
-/* button styling */
+/* Button row */
 .button-row {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 2em;
+  margin-top: 2.3em;
+  margin-left: 14px;
 }
 
 button {
-  padding: 12px 20px;
+  padding: 12px 22px;
   border: 1px solid #888;
   border-radius: 5px;
   background: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 1rem;
   letter-spacing: 0.08em;
-  color: #000;   /* ✔ black button text */
+  color: #000;
   cursor: pointer;
   transition: opacity .2s ease;
 }
@@ -116,24 +123,18 @@ button:hover {
   opacity: .75;
 }
 
-/* keyboard focus */
-:focus-visible {
-  outline: 2px solid #2f4f7f;
-  outline-offset: 2px;
-}
-
-/* footer */
 .footer {
-  margin-top: 2.5em;
+  margin-top: 2.8em;
   font-size: 0.85rem;
   color: #444;
   letter-spacing: 0.05em;
   text-align: center;
 }
 
-/* reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+/* keyboard focus */
+:focus-visible {
+  outline: 2px solid #2f4f7f;
+  outline-offset: 2px;
 }
 </style>
 </head>
@@ -143,6 +144,10 @@ button:hover {
 <div class="form-container">
 
 <h1>Contact Gale</h1>
+<div class="reassurance">
+Your message will be received and reviewed personally.<br>
+A reply will follow if needed.
+</div>
 
 <form id="contactForm"
       action="https://formsubmit.co/info@galelargey.org"
@@ -187,7 +192,6 @@ button:hover {
 </div>
 
 </form>
-
 </div>
 
 <script>
@@ -196,10 +200,30 @@ window.onload = () => {
   document.getElementById("first").focus();
 };
 
+// phone number auto-format
+document.getElementById("phone").addEventListener("input", function(e) {
+  let numbers = e.target.value.replace(/\D/g, '').substring(0,10);
+  let formatted = numbers;
+
+  if (numbers.length > 6)
+    formatted = `(${numbers.substring(0,3)}) ${numbers.substring(3,6)}-${numbers.substring(6)}`;
+  else if (numbers.length > 3)
+    formatted = `(${numbers.substring(0,3)}) ${numbers.substring(3)}`;
+  else if (numbers.length > 0)
+    formatted = `(${numbers}`;
+
+  e.target.value = formatted;
+});
+
+// confirmation before sending
 const form = document.getElementById("contactForm");
 
 form.addEventListener("submit", function(e){
   e.preventDefault();
+
+  if (!confirm("Send this message now?")) {
+    return;
+  }
 
   const data = new FormData(form);
 
@@ -208,13 +232,10 @@ form.addEventListener("submit", function(e){
     body: data,
     headers: { 'Accept': 'application/json' }
   }).then(() => {
-
     document.body.classList.add("fade-out");
-
     setTimeout(() => {
       window.location.href = "thankyou.html";
     }, 700);
-
   }).catch(() => {
     alert("There was a problem sending your message.");
   });
