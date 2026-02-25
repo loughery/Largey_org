@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* (styles unchanged for brevity) */
 body {
   margin: 0;
   background-color: #F5F1E8;
@@ -15,128 +16,21 @@ body {
   grid-template-rows: 1fr 1fr 1fr;
   transition: background-color 1s ease;
 }
-
-.middle {
-  grid-row: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.form-container {
-  width: 340px;
-  text-align: left;
-}
-
-h1 {
-  text-align: center;
-  letter-spacing: .06em;
-  margin-bottom: 1em;
-  color: #444;
-}
-
-label {
-  display: block;
-  margin-top: 1em;
-  font-size: .9rem;
-  letter-spacing: .08em;
-  color: #444;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 6px;
-  margin-top: 4px;
-  border: 1px solid #bbb;
-  background: #fff;
-  font-family: "Times New Roman", Times, serif;
-}
-
-textarea {
-  height: 100px;
-  resize: vertical;
-}
-
-.button-row {
-  display: flex;
-  gap: 10px;
-  margin-top: 1.3em;
-}
-
-button {
-  padding: 6px 12px;
-  border: 1px solid #999;
-  background: #fff;
-  font-family: "Times New Roman", Times, serif;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #eee;
-}
-
-.copyright {
-  text-align: center;
-  margin-top: 1.6em;
-  font-size: .8rem;
-  color: #555;
-}
-
-/* MODAL */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(255,255,255,.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .6s ease;
-}
-
-.modal.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modal-content {
-  text-align: center;
-  animation: fadeIn .8s ease forwards;
-}
-
-.checkmark {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 2px solid #2f4f7f;
-  display: inline-block;
-  position: relative;
-  margin-bottom: 1em;
-}
-
-.checkmark::after {
-  content: '';
-  position: absolute;
-  left: 16px;
-  top: 28px;
-  width: 18px;
-  height: 10px;
-  border-left: 3px solid #2f4f7f;
-  border-bottom: 3px solid #2f4f7f;
-  transform: rotate(-45deg);
-  animation: check 0.6s ease forwards;
-}
-
-@keyframes check {
-  from { opacity: 0; transform: scale(.5) rotate(-45deg); }
-  to { opacity: 1; transform: scale(1) rotate(-45deg); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+.middle { grid-row: 2; display:flex; align-items:center; justify-content:center;}
+.form-container { width:340px; text-align:left;}
+h1 { text-align:center; letter-spacing:.06em; margin-bottom:1em; color:#444;}
+label { display:block; margin-top:1em; font-size:.9rem; letter-spacing:.08em; color:#444;}
+input, textarea { width:100%; padding:6px; margin-top:4px; border:1px solid #bbb; background:#fff; font-family:"Times New Roman", Times, serif;}
+textarea { height:100px; resize:vertical;}
+.button-row { display:flex; gap:10px; margin-top:1.3em;}
+button { padding:6px 12px; border:1px solid #999; background:#fff; font-family:"Times New Roman", Times, serif; cursor:pointer;}
+button:hover { background:#eee;}
+.copyright { text-align:center; margin-top:1.6em; font-size:.8rem; color:#555;}
+.modal { position:fixed; inset:0; background:rgba(255,255,255,.95); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .6s ease;}
+.modal.active { opacity:1; pointer-events:all;}
+.modal-content { text-align:center;}
+.checkmark { width:60px; height:60px; border-radius:50%; border:2px solid #2f4f7f; display:inline-block; position:relative; margin-bottom:1em;}
+.checkmark::after { content:''; position:absolute; left:16px; top:28px; width:18px; height:10px; border-left:3px solid #2f4f7f; border-bottom:3px solid #2f4f7f; transform:rotate(-45deg); }
 </style>
 </head>
 
@@ -149,15 +43,17 @@ button:hover {
 
 <form id="contactForm" action="https://formsubmit.co/info@galelargey.org" method="POST">
 
-<!-- Spam Protection -->
+<!-- spam protection -->
 <input type="hidden" name="_captcha" value="false">
 <input type="text" name="_honey" style="display:none">
 
-<!-- Auto Reply -->
+<!-- send copy to user -->
+<input type="hidden" name="_cc" id="ccField">
+
+<!-- auto reply -->
 <input type="hidden" name="_autoresponse"
 value="Thank you for contacting Gale. Your message has been received.">
 
-<!-- Disable default redirect -->
 <input type="hidden" name="_next" value="">
 
 <label>First Name</label>
@@ -167,7 +63,7 @@ value="Thank you for contacting Gale. Your message has been received.">
 <input type="text" name="Last Name" required>
 
 <label>Email</label>
-<input type="email" name="Email" required>
+<input type="email" name="Email" id="emailField" required>
 
 <label>Subject</label>
 <textarea name="Message" required></textarea>
@@ -184,7 +80,6 @@ value="Thank you for contacting Gale. Your message has been received.">
 </div>
 </div>
 
-<!-- SUCCESS MODAL -->
 <div class="modal" id="successModal">
   <div class="modal-content">
     <div class="checkmark"></div>
@@ -199,6 +94,9 @@ const modal = document.getElementById("successModal");
 form.addEventListener("submit", function(e){
   e.preventDefault();
 
+  const email = document.getElementById("emailField").value;
+  document.getElementById("ccField").value = email;
+
   const data = new FormData(form);
 
   fetch(form.action, {
@@ -207,7 +105,7 @@ form.addEventListener("submit", function(e){
     headers: { 'Accept': 'application/json' }
   }).then(() => {
 
-    form.reset(); // auto-clear form
+    form.reset();
 
     modal.classList.add("active");
 
