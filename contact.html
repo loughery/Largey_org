@@ -52,8 +52,13 @@
       resize: vertical;
     }
 
-    button {
+    .button-row {
+      display: flex;
+      gap: 10px;
       margin-top: 1.2em;
+    }
+
+    button {
       padding: 6px 12px;
       border: 1px solid #999;
       background-color: #fff;
@@ -97,7 +102,10 @@
         <label for="subject">Subject</label>
         <textarea id="subject" name="subject" required></textarea>
 
-        <button type="submit">Submit</button>
+        <div class="button-row">
+          <button type="submit">Submit</button>
+          <button type="button" onclick="goHome()">Return Home</button>
+        </div>
 
         <div class="success" id="successMessage">
           Request submitted successfully.
@@ -109,6 +117,10 @@
   </div>
 
   <script>
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
     document.getElementById("contactForm").addEventListener("submit", function(event) {
       event.preventDefault();
 
