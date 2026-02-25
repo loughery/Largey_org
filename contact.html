@@ -91,16 +91,26 @@
   <div class="middle">
     <div class="form-container">
 
-      <form id="contactForm">
+      <form id="contactForm"
+            action="https://formsubmit.co/info@galelargey.org"
+            method="POST">
+
+        <!-- Spam protection -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+
+        <!-- Redirect after submission -->
+        <input type="hidden" name="_next" value="https://www.galelargey.org/index.html">
 
         <label for="first">First Name</label>
-        <input type="text" id="first" name="first" required>
+        <input type="text" id="first" name="First Name" required>
 
         <label for="last">Last Name</label>
-        <input type="text" id="last" name="last" required>
+        <input type="text" id="last" name="Last Name" required>
 
         <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" required></textarea>
+        <textarea id="subject" name="Subject" required></textarea>
 
         <div class="button-row">
           <button type="submit">Submit</button>
@@ -120,17 +130,6 @@
     function goHome() {
       window.location.href = "index.html";
     }
-
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const success = document.getElementById("successMessage");
-      success.style.display = "block";
-
-      setTimeout(function() {
-        window.location.href = "index.html";
-      }, 2000);
-    });
   </script>
 
 </body>
