@@ -29,6 +29,14 @@
       animation: fadeIn 1.5s ease forwards;
     }
 
+    h1 {
+      text-align: center;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.8em;
+      color: #444;
+    }
+
     label {
       display: block;
       margin-top: 1em;
@@ -72,11 +80,12 @@
       background-color: #eee;
     }
 
-    .success {
-      margin-top: 1em;
-      font-size: 0.9rem;
-      color: #2f4f7f;
-      display: none;
+    .copyright {
+      text-align: center;
+      margin-top: 1.4em;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      color: #555;
     }
 
     @keyframes fadeIn {
@@ -91,9 +100,9 @@
   <div class="middle">
     <div class="form-container">
 
-      <form id="contactForm"
-            action="https://formsubmit.co/info@galelargey.org"
-            method="POST">
+      <h1>Contact Gale</h1>
+
+      <form action="https://formsubmit.co/info@galelargey.org" method="POST">
 
         <!-- Spam protection -->
         <input type="hidden" name="_captcha" value="false">
@@ -114,23 +123,17 @@
 
         <div class="button-row">
           <button type="submit">Submit</button>
-          <button type="button" onclick="goHome()">Return Home</button>
+          <button type="button" onclick="window.location.href='index.html'">Return Home</button>
         </div>
 
-        <div class="success" id="successMessage">
-          Request submitted successfully.
+        <div class="copyright">
+          (c) 2026 Gale Largey
         </div>
 
       </form>
 
     </div>
   </div>
-
-  <script>
-    function goHome() {
-      window.location.href = "index.html";
-    }
-  </script>
 
 </body>
 </html>
