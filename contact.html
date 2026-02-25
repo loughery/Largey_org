@@ -9,11 +9,13 @@
 body {
   margin: 0;
   background-color: #F5F1E8;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Times New Roman", Times, serif;
   color: #000;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
   text-align: center;
   opacity: 1;
   transition: opacity .8s ease;
@@ -21,52 +23,46 @@ body {
 
 .fade-out { opacity: 0; }
 
-.middle {
-  grid-row: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .form-container {
-  width: 360px;
+  width: 90%;
+  max-width: 420px;   /* caps width on large screens */
   text-align: left;
 }
 
 h1 {
   text-align: center;
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1.4rem, 4vw, 2rem);
   letter-spacing: 0.05em;
   margin-bottom: 1em;
 }
 
-/* larger labels for aging eyes */
+/* larger labels */
 label {
   display: block;
-  margin-top: 1.2em;
-  font-size: 1rem;
-  letter-spacing: 0.10em;
+  margin-top: 1.3em;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
   color: #333;
   transition: color .2s ease;
 }
 
-/* improved inputs */
+/* fully responsive inputs */
 input, textarea {
-  width: calc(100% - 12px);
-  margin-left: 12px;
-  padding: 12px 10px;
+  width: 100%;
+  padding: 14px 12px;
   margin-top: 6px;
   border: 1px solid #bbb;
-  border-radius: 4px;
+  border-radius: 5px;
   background: #fff;
   font-family: "Times New Roman", Times, serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  box-sizing: border-box;  /* ensures proper mobile sizing */
   caret-color: #2f4f7f;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 textarea {
-  height: 130px;
+  min-height: 140px;
   resize: vertical;
 }
 
@@ -83,7 +79,7 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
 }
 
-/* placeholder styling */
+/* placeholder fade */
 ::placeholder {
   color: #777;
   font-style: italic;
@@ -98,18 +94,20 @@ textarea:focus::placeholder {
 /* button styling */
 .button-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  margin-top: 1.8em;
-  margin-left: 12px;
+  margin-top: 2em;
 }
 
 button {
-  padding: 10px 18px;
+  padding: 12px 20px;
   border: 1px solid #888;
-  border-radius: 4px;
+  border-radius: 5px;
   background: #fff;
   font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
   letter-spacing: 0.08em;
+  color: #000;   /* ✔ black button text */
   cursor: pointer;
   transition: opacity .2s ease;
 }
@@ -118,7 +116,7 @@ button:hover {
   opacity: .75;
 }
 
-/* keyboard navigation */
+/* keyboard focus */
 :focus-visible {
   outline: 2px solid #2f4f7f;
   outline-offset: 2px;
@@ -126,21 +124,14 @@ button:hover {
 
 /* footer */
 .footer {
-  margin-top: 2.2em;
-  font-size: 0.8rem;
+  margin-top: 2.5em;
+  font-size: 0.85rem;
   color: #444;
   letter-spacing: 0.05em;
   text-align: center;
 }
 
-/* mobile friendliness */
-@media (max-width: 480px) {
-  .form-container {
-    width: 92%;
-  }
-}
-
-/* reduced motion preference */
+/* reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
@@ -149,7 +140,6 @@ button:hover {
 
 <body>
 
-<div class="middle">
 <div class="form-container">
 
 <h1>Contact Gale</h1>
@@ -166,30 +156,25 @@ button:hover {
 <label for="first">First Name</label>
 <input id="first" type="text" name="First Name"
        placeholder="Enter your first name"
-       aria-label="First name"
        required>
 
 <label for="last">Last Name</label>
 <input id="last" type="text" name="Last Name"
        placeholder="Enter your last name"
-       aria-label="Last name"
        required>
 
 <label for="email">Email</label>
 <input id="email" type="email" name="_email"
        placeholder="your@email.com"
-       aria-label="Email address"
        required>
 
 <label for="phone">Phone (optional)</label>
 <input id="phone" type="tel" name="Phone"
-       placeholder="Optional"
-       aria-label="Phone number">
+       placeholder="Optional">
 
 <label for="message">Subject</label>
 <textarea id="message" name="Message"
           placeholder="How may I help you?"
-          aria-label="Message"
           required></textarea>
 
 <div class="button-row">
@@ -203,7 +188,6 @@ button:hover {
 
 </form>
 
-</div>
 </div>
 
 <script>
