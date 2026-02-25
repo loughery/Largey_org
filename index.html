@@ -2,8 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The works of Gale Largey</title>
+  <title>The Works of Gale Largey | Official Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta -->
+  <meta name="description" content="The works of Gale Largey — reflections, storytelling, and cultural history.">
+  <meta name="author" content="Gale Largey">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Works of Gale Largey">
+  <meta property="og:description" content="Storytelling, reflection, and cultural memory.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.galelargey.org">
+  <meta property="og:image" content="https://www.galelargey.org/preview.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gale Largey",
+    "url": "https://www.galelargey.org",
+    "sameAs": [
+      "https://www.youtube.com/@GaleLargey"
+    ]
+  }
+  </script>
 
   <style>
     body {
@@ -41,25 +65,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start; /* anchor to top */
-      padding-top: 2vh; /* reduced spacing */
+      justify-content: flex-start;
+      padding-top: 2vh;
       opacity: 0;
       animation: fadeIn 3s ease forwards;
-      animation-delay: 1s;
+      animation-delay: 3s; /* starts after quote completes */
     }
 
     .intro {
-      font-size: clamp(0.9rem, 1.8vw, 1.2rem);
-      font-weight: lighter;
-      color: #777;
-      letter-spacing: 0.18em;
+      font-size: clamp(0.95rem, 1.9vw, 1.3rem);
+      font-weight: 500;
+      color: #666;
+      letter-spacing: 0.12em;
+      text-transform: capitalize;
       margin-bottom: 0.6em;
     }
 
     h1 {
-      font-size: clamp(1rem, 2.5vw, 2rem);
+      font-size: clamp(1.2rem, 3vw, 2.4rem);
       margin: 0;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .divider {
@@ -69,12 +94,12 @@
       margin: 0.8em auto;
     }
 
-    .link-visit {
+    .link-line {
       font-size: clamp(0.9rem, 1.6vw, 1.1rem);
-      margin-top: 0.3em;
+      margin-top: 0.4em;
     }
 
-    .visit-label {
+    .label {
       letter-spacing: 0.15em;
       font-variant: small-caps;
       color: #444;
@@ -92,7 +117,7 @@
 
     .copyright {
       font-size: clamp(0.75rem, 1.3vw, 0.9rem);
-      margin-top: 0.8em;
+      margin-top: 1em;
       color: #555;
       letter-spacing: 0.05em;
     }
@@ -115,14 +140,21 @@
   </div>
 
   <div class="content-half">
-    <div class="intro">the works of</div>
-    <h1>Gale P. Largey, PhD</h1>
+    <div class="intro">The Works of</div>
+    <h1>Gale Largey</h1>
     <div class="divider"></div>
 
-    <div class="link-visit">
-      <span class="visit-label">Visit</span>
+    <div class="link-line">
+      <span class="label">Visit</span>
       <a href="https://www.youtube.com/@GaleLargey" target="_blank">
-        www.YouTube.com/@GaleLargey
+        YouTube Channel
+      </a>
+    </div>
+
+    <div class="link-line">
+      <span class="label">Contact</span>
+      <a href="https://www.galelargey.org/contact.html">
+        Contact Page
       </a>
     </div>
 
