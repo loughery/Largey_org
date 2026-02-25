@@ -155,9 +155,9 @@ button:hover {
 
 <!-- Auto Reply -->
 <input type="hidden" name="_autoresponse"
-value="Thank you for contacting Gale Largey. Your message has been received and will be reviewed shortly.">
+value="Thank you for contacting Gale. Your message has been received.">
 
-<!-- Disable FormSubmit redirect -->
+<!-- Disable default redirect -->
 <input type="hidden" name="_next" value="">
 
 <label>First Name</label>
@@ -177,7 +177,7 @@ value="Thank you for contacting Gale Largey. Your message has been received and 
 <button type="button" onclick="window.location.href='index.html'">Return Home</button>
 </div>
 
-<div class="copyright">(c) 2026 Gale Largey</div>
+<div class="copyright">(c) 2026</div>
 
 </form>
 
@@ -212,7 +212,7 @@ form.addEventListener("submit", function(e){
     modal.classList.add("active");
 
     setTimeout(() => {
-      document.body.style.backgroundColor = "#ffffff"; // fade to white
+      document.body.style.backgroundColor = "#ffffff";
     }, 800);
 
     setTimeout(() => {
