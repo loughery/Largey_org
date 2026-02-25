@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>The Pictoral Essays of Gale Largey | Official Website</title>
-<title>Contact | The Works of Gale Largey</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description" content="The works of Gale Largey — reflections, storytelling, and cultural history.">
@@ -12,7 +12,6 @@ body {
   margin: 0;
   background-color: #F5F1E8;
   height: 100vh;
-  min-height: 100vh;
   font-family: "Times New Roman", Times, serif;
   color: #000;
   display: grid;
@@ -28,10 +27,6 @@ body {
   padding: 0 10%;
   opacity: 0;
   animation: fadeIn 3s ease forwards;
-  padding: 20px 0;
-  text-align: center;
-  opacity: 1;
-  transition: opacity .8s ease;
 }
 
 .quote {
@@ -41,12 +36,6 @@ body {
   color: #555;
   letter-spacing: 0.04em;
   line-height: 1.5;
-.fade-out { opacity: 0; }
-
-.form-container {
-  width: 90%;
-  max-width: 420px;   /* caps width on large screens */
-  text-align: left;
 }
 
 /* BOTTOM HALF */
@@ -59,11 +48,6 @@ body {
   opacity: 0;
   animation: fadeIn 3s ease forwards;
   animation-delay: 3s;
-h1 {
-  text-align: center;
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  letter-spacing: 0.05em;
-  margin-bottom: 1em;
 }
 
 .intro {
@@ -73,33 +57,12 @@ h1 {
   letter-spacing: 0.12em;
   text-transform: capitalize;
   margin-bottom: 0.6em;
-/* larger labels */
-label {
-  display: block;
-  margin-top: 1.3em;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  color: #333;
-  transition: color .2s ease;
 }
 
 h1 {
   font-size: clamp(1.2rem, 3vw, 2.4rem);
   margin: 0;
   letter-spacing: 0.05em;
-/* fully responsive inputs */
-input, textarea {
-  width: 100%;
-  padding: 14px 12px;
-  margin-top: 6px;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-  background: #fff;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1.05rem;
-  box-sizing: border-box;  /* ensures proper mobile sizing */
-  caret-color: #2f4f7f;
-  transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 .divider {
@@ -107,18 +70,11 @@ input, textarea {
   height: 1px;
   background-color: #bbb;
   margin: 0.8em auto;
-textarea {
-  min-height: 140px;
-  resize: vertical;
 }
 
 .link-line {
   font-size: clamp(0.9rem, 1.6vw, 1.1rem);
   margin-top: 0.4em;
-/* label darkens when active */
-label:has(+ input:focus),
-label:has(+ textarea:focus) {
-  color: #222;
 }
 
 .label {
@@ -126,37 +82,19 @@ label:has(+ textarea:focus) {
   font-variant: small-caps;
   color: #444;
   margin-right: 6px;
-/* focus highlight */
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #666;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
 }
 
 a {
   color: #2f4f7f;
   text-decoration: none;
   transition: opacity .3s ease;
-/* placeholder fade */
-::placeholder {
-  color: #777;
-  font-style: italic;
-  transition: opacity .25s ease;
 }
 
 a:hover {
   opacity: 0.7; /* subtle hover */
-input:focus::placeholder,
-textarea:focus::placeholder {
-  opacity: 0;
 }
 
 .footer {
-/* button styling */
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
   margin-top: 2em;
   font-size: 0.8rem;
   color: #555;
@@ -167,17 +105,6 @@ textarea:focus::placeholder {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-button {
-  padding: 12px 20px;
-  border: 1px solid #888;
-  border-radius: 5px;
-  background: #fff;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  color: #000;   /* ✔ black button text */
-  cursor: pointer;
-  transition: opacity .2s ease;
 }
 
 /* PRINT STYLING */
@@ -186,38 +113,19 @@ button {
     background: white;
     color: black;
   }
-button:hover {
-  opacity: .75;
-}
 
   a {
     color: black;
     text-decoration: none;
   }
-/* keyboard focus */
-:focus-visible {
-  outline: 2px solid #2f4f7f;
-  outline-offset: 2px;
-}
 
   .quote-half {
     padding: 0;
   }
-/* footer */
-.footer {
-  margin-top: 2.5em;
-  font-size: 0.85rem;
-  color: #444;
-  letter-spacing: 0.05em;
-  text-align: center;
-}
 
   .footer {
     margin-top: 3em;
   }
-/* reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
 }
 </style>
 </head>
@@ -230,46 +138,6 @@ button:hover {
     the storyteller<br>
     becomes a story.
   </div>
-<div class="form-container">
-
-<h1>Contact Gale</h1>
-
-<form id="contactForm"
-      action="https://formsubmit.co/info@galelargey.org"
-      method="POST">
-
-<input type="hidden" name="_captcha" value="false">
-<input type="text" name="_honey" style="display:none">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="">
-
-<label for="first">First Name</label>
-<input id="first" type="text" name="First Name"
-       placeholder="Enter your first name"
-       required>
-
-<label for="last">Last Name</label>
-<input id="last" type="text" name="Last Name"
-       placeholder="Enter your last name"
-       required>
-
-<label for="email">Email</label>
-<input id="email" type="email" name="_email"
-       placeholder="your@email.com"
-       required>
-
-<label for="phone">Phone (optional)</label>
-<input id="phone" type="tel" name="Phone"
-       placeholder="Optional">
-
-<label for="message">Subject</label>
-<textarea id="message" name="Message"
-          placeholder="How may I help you?"
-          required></textarea>
-
-<div class="button-row">
-<button type="submit">Submit</button>
-<button type="button" onclick="window.location.href='index.html'">Return Home</button>
 </div>
 
 <div class="content-half">
@@ -288,47 +156,12 @@ button:hover {
   </div>
 
   <div class="footer">
-    (c) 2026&nbsp;&nbsp;|&nbsp;&nbsp; galelargey.org
+    (c) 2026&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="https://www.galelargey.org" style="color:#555;">
+      galelargey.org
     </a>
   </div>
-<div class="footer">
-  (c) 2026&nbsp;&nbsp;|&nbsp;&nbsp;galelargey.org
 </div>
-
-</form>
-
-</div>
-
-<script>
-// autofocus first field
-window.onload = () => {
-  document.getElementById("first").focus();
-};
-
-const form = document.getElementById("contactForm");
-
-form.addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const data = new FormData(form);
-
-  fetch(form.action, {
-    method: "POST",
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(() => {
-
-    document.body.classList.add("fade-out");
-
-    setTimeout(() => {
-      window.location.href = "thankyou.html";
-    }, 700);
-
-  }).catch(() => {
-    alert("There was a problem sending your message.");
-  });
-});
-</script>
 
 </body>
 </html>
