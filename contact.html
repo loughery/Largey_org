@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-html {
-  background-color: #F5F1E8;
-}
+html { background-color: #F5F1E8; }
 
 body {
   margin: 0;
@@ -21,11 +19,7 @@ body {
   justify-content: center;
   padding: 28px 0;
   text-align: center;
-  opacity: 1;
-  transition: opacity .8s ease;
 }
-
-.fade-out { opacity: 0; }
 
 .form-container {
   width: 90%;
@@ -36,7 +30,7 @@ body {
 h1 {
   text-align: center;
   font-size: clamp(1.4rem, 4vw, 2rem);
-  letter-spacing: 0.05em;
+  letter-spacing: .05em;
   margin-bottom: .4em;
 }
 
@@ -53,7 +47,7 @@ label {
   display: block;
   margin-top: 1.6em;
   font-size: 1.05rem;
-  letter-spacing: 0.08em;
+  letter-spacing: .08em;
   color: #333;
 }
 
@@ -73,9 +67,13 @@ input, textarea {
   caret-color: #2f4f7f;
 }
 
-/* prevent autofill & validation color shifts */
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* prevent autofill color changes */
 input:-webkit-autofill,
-input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill {
   -webkit-text-fill-color: #000;
@@ -90,23 +88,16 @@ textarea:invalid {
   box-shadow: none;
 }
 
-/* focus highlight */
 input:focus, textarea:focus {
   outline: none;
   border-color: #666;
   box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
 }
 
-textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
 /* placeholder fade */
 ::placeholder {
   color: #777;
   font-style: italic;
-  transition: opacity .25s ease;
 }
 
 input:focus::placeholder,
@@ -130,26 +121,19 @@ button {
   background: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 1rem;
-  letter-spacing: 0.08em;
+  letter-spacing: .08em;
   color: #000;
   cursor: pointer;
 }
 
-button:hover {
-  opacity: .75;
-}
+button:hover { opacity: .75; }
 
 .footer {
   margin-top: 2.8em;
-  font-size: 0.85rem;
+  font-size: .85rem;
   color: #444;
-  letter-spacing: 0.05em;
+  letter-spacing: .05em;
   text-align: center;
-}
-
-:focus-visible {
-  outline: 2px solid #2f4f7f;
-  outline-offset: 2px;
 }
 </style>
 </head>
@@ -165,29 +149,26 @@ Your message will be received and reviewed personally.<br>
 A reply will follow if needed.
 </div>
 
-<form id="contactForm"
-      action="https://formsubmit.co/info@galelargey.org"
-      method="POST">
+<form action="https://formsubmit.co/info@galelargey.org" method="POST">
+
+<!-- Redirect after submit -->
+<input type="hidden" name="_next" value="https://www.galelargey.org/thankyou.html">
 
 <input type="hidden" name="_captcha" value="false">
 <input type="text" name="_honey" style="display:none">
 <input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="">
 
 <label for="first">First Name</label>
 <input id="first" type="text" name="First Name"
-       placeholder="Enter your first name"
-       required>
+       placeholder="Enter your first name" required>
 
 <label for="last">Last Name</label>
 <input id="last" type="text" name="Last Name"
-       placeholder="Enter your last name"
-       required>
+       placeholder="Enter your last name" required>
 
 <label for="email">Email</label>
 <input id="email" type="email" name="email"
-       placeholder="your@email.com"
-       required>
+       placeholder="your@email.com" required>
 
 <label for="phone">Phone (optional)</label>
 <input id="phone" type="tel" name="Phone"
@@ -195,8 +176,7 @@ A reply will follow if needed.
 
 <label for="message">Subject</label>
 <textarea id="message" name="Message"
-          placeholder="How may I help you?"
-          required></textarea>
+          placeholder="How may I help you?" required></textarea>
 
 <div class="button-row">
 <button type="submit">Submit</button>
@@ -212,32 +192,16 @@ A reply will follow if needed.
 
 <script>
 // autofocus first field
-window.onload = () => {
-  document.getElementById("first").focus();
-};
+window.onload = () => document.getElementById("first").focus();
 
-// phone number formatting
-document.getElementById("phone").addEventListener("input", function(e) {
-  let numbers = e.target.value.replace(/\D/g, '').substring(0,10);
-  let formatted = numbers;
-
-  if (numbers.length > 6)
-    formatted = `(${numbers.substring(0,3)}) ${numbers.substring(3,6)}-${numbers.substring(6)}`;
-  else if (numbers.length > 3)
-    formatted = `(${numbers.substring(0,3)}) ${numbers.substring(3)}`;
-  else if (numbers.length > 0)
-    formatted = `(${numbers}`;
-
-  e.target.value = formatted;
-});
-
-// confirmation before sending
-const form = document.getElementById("contactForm");
-
-form.addEventListener("submit", function(e){
-  if (!confirm("Send this message now?")) {
-    e.preventDefault();
-  }
+// phone formatting
+document.getElementById("phone").addEventListener("input", function(e){
+  let numbers = e.target.value.replace(/\D/g,'').substring(0,10);
+  let f = numbers;
+  if(numbers.length>6) f=`(${numbers.slice(0,3)}) ${numbers.slice(3,6)}-${numbers.slice(6)}`;
+  else if(numbers.length>3) f=`(${numbers.slice(0,3)}) ${numbers.slice(3)}`;
+  else if(numbers.length>0) f=`(${numbers}`;
+  e.target.value=f;
 });
 </script>
 
