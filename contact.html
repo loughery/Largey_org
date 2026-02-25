@@ -13,7 +13,7 @@
       font-family: "Times New Roman", Times, serif;
       color: #000;
       display: grid;
-      grid-template-rows: 1fr 1fr 1fr; /* middle third layout */
+      grid-template-rows: 1fr 1fr 1fr;
     }
 
     .middle {
@@ -52,20 +52,26 @@
       resize: vertical;
     }
 
-    .back {
-      margin-top: 1.5em;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-align: center;
+    button {
+      margin-top: 1.2em;
+      padding: 6px 12px;
+      border: 1px solid #999;
+      background-color: #fff;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
     }
 
-    a {
+    button:hover {
+      background-color: #eee;
+    }
+
+    .success {
+      margin-top: 1em;
+      font-size: 0.9rem;
       color: #2f4f7f;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      display: none;
     }
 
     @keyframes fadeIn {
@@ -80,21 +86,40 @@
   <div class="middle">
     <div class="form-container">
 
-      <label for="first">First Name</label>
-      <input type="text" id="first" name="first">
+      <form id="contactForm">
 
-      <label for="last">Last Name</label>
-      <input type="text" id="last" name="last">
+        <label for="first">First Name</label>
+        <input type="text" id="first" name="first" required>
 
-      <label for="subject">Subject</label>
-      <textarea id="subject" name="subject"></textarea>
+        <label for="last">Last Name</label>
+        <input type="text" id="last" name="last" required>
 
-      <div class="back">
-        <a href="index.html">Return to Home</a>
-      </div>
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" required></textarea>
+
+        <button type="submit">Submit</button>
+
+        <div class="success" id="successMessage">
+          Request submitted successfully.
+        </div>
+
+      </form>
 
     </div>
   </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const success = document.getElementById("successMessage");
+      success.style.display = "block";
+
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 2000);
+    });
+  </script>
 
 </body>
 </html>
