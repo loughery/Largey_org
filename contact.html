@@ -40,26 +40,28 @@ h1 {
   margin-bottom: 1em;
 }
 
-/* larger, clearer labels */
+/* larger labels for aging eyes */
 label {
   display: block;
   margin-top: 1.2em;
   font-size: 1rem;
   letter-spacing: 0.10em;
-  color: #444;
+  color: #333;
+  transition: color .2s ease;
 }
 
 /* improved inputs */
 input, textarea {
   width: calc(100% - 12px);
   margin-left: 12px;
-  padding: 12px 10px; /* larger tap area */
+  padding: 12px 10px;
   margin-top: 6px;
   border: 1px solid #bbb;
   border-radius: 4px;
   background: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 1rem;
+  caret-color: #2f4f7f;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 
@@ -68,20 +70,32 @@ textarea {
   resize: vertical;
 }
 
+/* label darkens when active */
+label:has(+ input:focus),
+label:has(+ textarea:focus) {
+  color: #222;
+}
+
 /* focus highlight */
 input:focus, textarea:focus {
   outline: none;
-  border-color: #888;
+  border-color: #666;
   box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
 }
 
-/* gentle placeholder guidance */
+/* placeholder styling */
 ::placeholder {
-  color: #999;
+  color: #777;
   font-style: italic;
+  transition: opacity .25s ease;
 }
 
-/* button row */
+input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0;
+}
+
+/* button styling */
 .button-row {
   display: flex;
   gap: 12px;
@@ -90,8 +104,8 @@ input:focus, textarea:focus {
 }
 
 button {
-  padding: 10px 18px; /* larger tap target */
-  border: 1px solid #999;
+  padding: 10px 18px;
+  border: 1px solid #888;
   border-radius: 4px;
   background: #fff;
   font-family: "Times New Roman", Times, serif;
@@ -104,19 +118,31 @@ button:hover {
   opacity: .75;
 }
 
+/* keyboard navigation */
+:focus-visible {
+  outline: 2px solid #2f4f7f;
+  outline-offset: 2px;
+}
+
+/* footer */
 .footer {
   margin-top: 2.2em;
   font-size: 0.8rem;
-  color: #555;
+  color: #444;
   letter-spacing: 0.05em;
   text-align: center;
 }
 
-/* mobile enhancements */
+/* mobile friendliness */
 @media (max-width: 480px) {
   .form-container {
     width: 92%;
   }
+}
+
+/* reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
 }
 </style>
 </head>
@@ -138,19 +164,33 @@ button:hover {
 <input type="hidden" name="_next" value="">
 
 <label for="first">First Name</label>
-<input id="first" type="text" name="First Name" placeholder="Enter your first name" required>
+<input id="first" type="text" name="First Name"
+       placeholder="Enter your first name"
+       aria-label="First name"
+       required>
 
 <label for="last">Last Name</label>
-<input id="last" type="text" name="Last Name" placeholder="Enter your last name" required>
+<input id="last" type="text" name="Last Name"
+       placeholder="Enter your last name"
+       aria-label="Last name"
+       required>
 
 <label for="email">Email</label>
-<input id="email" type="email" name="_email" placeholder="your@email.com" required>
+<input id="email" type="email" name="_email"
+       placeholder="your@email.com"
+       aria-label="Email address"
+       required>
 
 <label for="phone">Phone (optional)</label>
-<input id="phone" type="tel" name="Phone" placeholder="Optional">
+<input id="phone" type="tel" name="Phone"
+       placeholder="Optional"
+       aria-label="Phone number">
 
 <label for="message">Subject</label>
-<textarea id="message" name="Message" placeholder="How may I help you?" required></textarea>
+<textarea id="message" name="Message"
+          placeholder="How may I help you?"
+          aria-label="Message"
+          required></textarea>
 
 <div class="button-row">
 <button type="submit">Submit</button>
@@ -167,8 +207,8 @@ button:hover {
 </div>
 
 <script>
-// autofocus first field when page loads
-window.onload = function() {
+// autofocus first field
+window.onload = () => {
   document.getElementById("first").focus();
 };
 
