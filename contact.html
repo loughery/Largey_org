@@ -1,162 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact | The Works of Gale Largey</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Contact | The Works of Gale Largey</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      background-color: #F5F1E8;
-      height: 100vh;
-      font-family: "Times New Roman", Times, serif;
-      color: #000;
-      display: grid;
-      grid-template-rows: 1fr 1fr 1fr;
-    }
+<style>
+body {
+  margin: 0;
+  background-color: #F5F1E8;
+  height: 100vh;
+  font-family: "Times New Roman", Times, serif;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  transition: background-color 1s ease;
+}
 
-    .middle {
-      grid-row: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.middle {
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .form-container {
-      width: 320px;
-      text-align: left;
-      animation: fadeIn 1.5s ease forwards;
-    }
+.form-container {
+  width: 340px;
+  text-align: left;
+}
 
-    h1 {
-      text-align: center;
-      font-size: 1.3rem;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.8em;
-      color: #444;
-    }
+h1 {
+  text-align: center;
+  letter-spacing: .06em;
+  margin-bottom: 1em;
+  color: #444;
+}
 
-    label {
-      display: block;
-      margin-top: 1em;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      color: #444;
-    }
+label {
+  display: block;
+  margin-top: 1em;
+  font-size: .9rem;
+  letter-spacing: .08em;
+  color: #444;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 6px;
-      margin-top: 4px;
-      border: 1px solid #bbb;
-      background-color: #fff;
-      font-family: "Times New Roman", Times, serif;
-      font-size: 0.95rem;
-    }
+input, textarea {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border: 1px solid #bbb;
+  background: #fff;
+  font-family: "Times New Roman", Times, serif;
+}
 
-    textarea {
-      height: 100px;
-      resize: vertical;
-    }
+textarea {
+  height: 100px;
+  resize: vertical;
+}
 
-    .button-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 1.2em;
-    }
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.3em;
+}
 
-    button {
-      padding: 6px 12px;
-      border: 1px solid #999;
-      background-color: #fff;
-      font-family: "Times New Roman", Times, serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-    }
+button {
+  padding: 6px 12px;
+  border: 1px solid #999;
+  background: #fff;
+  font-family: "Times New Roman", Times, serif;
+  cursor: pointer;
+}
 
-    button:hover {
-      background-color: #eee;
-    }
+button:hover {
+  background: #eee;
+}
 
-    .copyright {
-      text-align: center;
-      margin-top: 1.4em;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
-      color: #555;
-    }
+.copyright {
+  text-align: center;
+  margin-top: 1.6em;
+  font-size: .8rem;
+  color: #555;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content {
+  text-align: center;
+  animation: fadeIn .8s ease forwards;
+}
+
+.checkmark {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #2f4f7f;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.checkmark::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 28px;
+  width: 18px;
+  height: 10px;
+  border-left: 3px solid #2f4f7f;
+  border-bottom: 3px solid #2f4f7f;
+  transform: rotate(-45deg);
+  animation: check 0.6s ease forwards;
+}
+
+@keyframes check {
+  from { opacity: 0; transform: scale(.5) rotate(-45deg); }
+  to { opacity: 1; transform: scale(1) rotate(-45deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="middle">
-    <div class="form-container">
+<div class="middle">
+<div class="form-container">
 
-      <h1>Contact Gale</h1>
+<h1>Contact Gale</h1>
 
-      <form id="contactForm" action="https://formsubmit.co/info@galelargey.org" method="POST">
+<form id="contactForm" action="https://formsubmit.co/info@galelargey.org" method="POST">
 
-        <!-- spam protection -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none">
+<!-- Spam Protection -->
+<input type="hidden" name="_captcha" value="false">
+<input type="text" name="_honey" style="display:none">
 
-        <!-- prevent default redirect -->
-        <input type="hidden" name="_next" value="">
+<!-- Auto Reply -->
+<input type="hidden" name="_autoresponse"
+value="Thank you for contacting Gale Largey. Your message has been received and will be reviewed shortly.">
 
-        <label for="first">First Name</label>
-        <input type="text" id="first" name="First Name" required>
+<!-- Disable FormSubmit redirect -->
+<input type="hidden" name="_next" value="">
 
-        <label for="last">Last Name</label>
-        <input type="text" id="last" name="Last Name" required>
+<label>First Name</label>
+<input type="text" name="First Name" required>
 
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="Subject" required></textarea>
+<label>Last Name</label>
+<input type="text" name="Last Name" required>
 
-        <div class="button-row">
-          <button type="submit">Submit</button>
-          <button type="button" onclick="window.location.href='index.html'">Return Home</button>
-        </div>
+<label>Email</label>
+<input type="email" name="Email" required>
 
-        <div class="copyright">
-          (c) 2026 Gale Largey
-        </div>
+<label>Subject</label>
+<textarea name="Message" required></textarea>
 
-      </form>
+<div class="button-row">
+<button type="submit">Submit</button>
+<button type="button" onclick="window.location.href='index.html'">Return Home</button>
+</div>
 
-    </div>
+<div class="copyright">(c) 2026 Gale Largey</div>
+
+</form>
+
+</div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal" id="successModal">
+  <div class="modal-content">
+    <div class="checkmark"></div>
+    <p>Thank you. Your email has been sent successfully.</p>
   </div>
+</div>
 
-  <script>
-    const form = document.getElementById("contactForm");
+<script>
+const form = document.getElementById("contactForm");
+const modal = document.getElementById("successModal");
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+form.addEventListener("submit", function(e){
+  e.preventDefault();
 
-      const data = new FormData(form);
+  const data = new FormData(form);
 
-      fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(() => {
-        alert("Thank you. Your email has been sent successfully.");
-        window.location.href = "index.html";
-      }).catch(() => {
-        alert("There was a problem sending your message. Please try again.");
-      });
-    });
-  </script>
+  fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+
+    form.reset(); // auto-clear form
+
+    modal.classList.add("active");
+
+    setTimeout(() => {
+      document.body.style.backgroundColor = "#ffffff"; // fade to white
+    }, 800);
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 2500);
+
+  }).catch(() => {
+    alert("There was a problem sending your message.");
+  });
+});
+</script>
 
 </body>
 </html>
