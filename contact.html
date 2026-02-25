@@ -19,9 +19,7 @@ body {
   transition: opacity .8s ease;
 }
 
-.fade-out {
-  opacity: 0;
-}
+.fade-out { opacity: 0; }
 
 .middle {
   grid-row: 2;
@@ -42,43 +40,64 @@ h1 {
   margin-bottom: 1em;
 }
 
+/* larger, clearer labels */
 label {
   display: block;
   margin-top: 1.2em;
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
+  font-size: 1rem;
+  letter-spacing: 0.10em;
   color: #444;
 }
 
-/* INDENTED INPUTS */
+/* improved inputs */
 input, textarea {
   width: calc(100% - 12px);
   margin-left: 12px;
-  padding: 6px;
-  margin-top: 4px;
+  padding: 12px 10px; /* larger tap area */
+  margin-top: 6px;
   border: 1px solid #bbb;
+  border-radius: 4px;
   background: #fff;
   font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 textarea {
-  height: 110px;
+  height: 130px;
   resize: vertical;
 }
 
+/* focus highlight */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #888;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+}
+
+/* gentle placeholder guidance */
+::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* button row */
 .button-row {
   display: flex;
   gap: 12px;
-  margin-top: 1.5em;
+  margin-top: 1.8em;
+  margin-left: 12px;
 }
 
 button {
-  padding: 6px 14px;
+  padding: 10px 18px; /* larger tap target */
   border: 1px solid #999;
+  border-radius: 4px;
   background: #fff;
   font-family: "Times New Roman", Times, serif;
   letter-spacing: 0.08em;
   cursor: pointer;
+  transition: opacity .2s ease;
 }
 
 button:hover {
@@ -86,11 +105,18 @@ button:hover {
 }
 
 .footer {
-  margin-top: 2em;
+  margin-top: 2.2em;
   font-size: 0.8rem;
   color: #555;
   letter-spacing: 0.05em;
   text-align: center;
+}
+
+/* mobile enhancements */
+@media (max-width: 480px) {
+  .form-container {
+    width: 92%;
+  }
 }
 </style>
 </head>
@@ -111,17 +137,20 @@ button:hover {
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="">
 
-<label>First Name</label>
-<input type="text" name="First Name" required>
+<label for="first">First Name</label>
+<input id="first" type="text" name="First Name" placeholder="Enter your first name" required>
 
-<label>Last Name</label>
-<input type="text" name="Last Name" required>
+<label for="last">Last Name</label>
+<input id="last" type="text" name="Last Name" placeholder="Enter your last name" required>
 
-<label>Email</label>
-<input type="email" name="_email" required>
+<label for="email">Email</label>
+<input id="email" type="email" name="_email" placeholder="your@email.com" required>
 
-<label>Subject</label>
-<textarea name="Message" required></textarea>
+<label for="phone">Phone (optional)</label>
+<input id="phone" type="tel" name="Phone" placeholder="Optional">
+
+<label for="message">Subject</label>
+<textarea id="message" name="Message" placeholder="How may I help you?" required></textarea>
 
 <div class="button-row">
 <button type="submit">Submit</button>
@@ -138,6 +167,11 @@ button:hover {
 </div>
 
 <script>
+// autofocus first field when page loads
+window.onload = function() {
+  document.getElementById("first").focus();
+};
+
 const form = document.getElementById("contactForm");
 
 form.addEventListener("submit", function(e){
