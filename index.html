@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Gale P. Largey, PhD</title>
+  <title>The works of Gale Largey</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -13,31 +13,35 @@
       font-family: "Times New Roman", Times, serif;
       color: #000;
       display: grid;
-      grid-template-rows: 1fr 1fr 1fr; /* top third, middle, bottom third */
+      grid-template-rows: 1fr 1fr; /* two equal halves */
       text-align: center;
     }
 
-    /* QUOTE AREA (top third) */
-    .quote {
+    /* TOP HALF */
+    .quote-half {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0 10%;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    .quote {
       font-size: clamp(1.1rem, 2vw, 1.6rem);
       font-weight: 300;
       font-style: italic;
       color: #555;
       letter-spacing: 0.03em;
       line-height: 1.4;
-      opacity: 0;
-      animation: fadeIn 3s ease forwards;
     }
 
-    /* LOWER CONTENT (upper area of lower third) */
-    .container {
-      grid-row: 3;
-      align-self: start;
-      padding-top: 2vh;
+    /* BOTTOM HALF */
+    .content-half {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       opacity: 0;
       animation: fadeIn 3s ease forwards;
       animation-delay: 1s;
@@ -64,12 +68,12 @@
       margin: 0.8em auto;
     }
 
-    .link-Visit {
+    .link-visit {
       font-size: clamp(0.9rem, 1.6vw, 1.1rem);
       margin-top: 0.3em;
     }
 
-    .Visit-label {
+    .visit-label {
       letter-spacing: 0.15em;
       font-variant: small-caps;
       color: #444;
@@ -85,7 +89,7 @@
       text-decoration: underline;
     }
 
-    p {
+    .copyright {
       font-size: clamp(0.75rem, 1.3vw, 0.9rem);
       margin-top: 0.8em;
       color: #555;
@@ -101,23 +105,25 @@
 
 <body>
 
-  <div class="quote">
-    Sometimes when telling a story, the story teller becomes a story.
+  <div class="quote-half">
+    <div class="quote">
+      Sometimes when telling a story, the storyteller becomes a story.
+    </div>
   </div>
 
-  <div class="container">
+  <div class="content-half">
     <div class="intro">the works of</div>
     <h1>Gale P. Largey, PhD</h1>
     <div class="divider"></div>
 
-    <div class="link-Visit">
-      <span class="Visit-label">Visit</span>
+    <div class="link-visit">
+      <span class="visit-label">Visit</span>
       <a href="https://www.youtube.com/@GaleLargey" target="_blank">
         www.YouTube.com/@GaleLargey
       </a>
     </div>
 
-    <p>&copy; 2026</p>
+    <div class="copyright">&copy; 2026</div>
   </div>
 
 </body>
