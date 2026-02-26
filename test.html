@@ -28,11 +28,18 @@ body {
   animation: pageFade .7s ease forwards;
 }
 
+/* fade page in */
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .fade-out {
   opacity: 0;
   transition: opacity .5s ease;
 }
 
+/* quote */
 .quote-half {
   display: flex;
   align-items: center;
@@ -49,6 +56,7 @@ body {
   letter-spacing: 0.03em;
 }
 
+/* content */
 .content-half {
   display: flex;
   flex-direction: column;
@@ -77,50 +85,55 @@ h1 {
   width: 60px;
   height: 1px;
   background-color: #bbb;
-  margin: 0.9em auto;
+  margin: 1em auto 0.8em auto;
 }
 
 /* navigation table */
 .nav-table {
-  margin-top: 1.6em;
+  margin-top: 1.8em;
   border-collapse: collapse;
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards;
+  animation-delay: 3.6s; /* fade in after text */
 }
 
 .nav-table td {
-  padding: 6px 42px; /* increased separation */
+  padding: 0 52px; /* optical balance spacing */
   text-align: center;
-  vertical-align: middle;
 }
 
-.nav-table a {
-  display: inline-block;
-}
-
-/* icons same size */
+/* icon styling */
 .nav-icon {
-  width: 55px; /* 50% smaller */
+  width: 55px;
   height: auto;
-  display: block;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: all .45s ease;
+}
+
+/* hover effects */
+.nav-icon:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
 /* footer */
 .footer {
-  margin-top: 2.2em;
+  margin-top: 2.4em;
   font-size: .85rem;
   color: #444;
   letter-spacing: .05em;
 }
 
+/* fade in */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-@keyframes pageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+/* accessibility */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
@@ -157,9 +170,9 @@ h1 {
         </a>
       </td>
       <td>
-        <a href="mailto:info@galelargey.org">
+        <a href="https://www.galelargey.org/contact.html">
           <img src="email_logo.gif"
-               alt="Email Gale Largey"
+               alt="Contact Gale Largey"
                class="nav-icon">
         </a>
       </td>
@@ -172,6 +185,7 @@ h1 {
 </div>
 
 <script>
+// subtle fade between pages
 document.querySelectorAll("a").forEach(link => {
   if (link.hostname === window.location.hostname) {
     link.addEventListener("click", function(e) {
