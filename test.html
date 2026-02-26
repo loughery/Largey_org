@@ -82,31 +82,37 @@ h1 {
 
 /* navigation table */
 .nav-table {
-  margin-top: 1.2em;
+  margin-top: 1.4em;
   border-collapse: collapse;
 }
 
 .nav-table td {
-  padding: 12px 26px;
+  padding: 8px 22px;
   text-align: center;
-  font-size: 1rem;
-  letter-spacing: .08em;
+  vertical-align: middle;
 }
 
 .nav-table a {
+  display: block;
+}
+
+/* YouTube icon fills cell */
+.icon {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+}
+
+/* contact link styling */
+.contact-link {
+  font-size: 1rem;
+  letter-spacing: .08em;
   text-decoration: none;
   color: #2f4f7f;
-  transition: opacity .25s ease;
 }
 
-.nav-table a:hover {
+.contact-link:hover {
   opacity: .7;
-}
-
-.icon {
-  width: 34px;
-  height: auto;
-  margin-bottom: 4px;
 }
 
 /* footer */
@@ -158,13 +164,12 @@ h1 {
       <td>
         <a href="https://www.youtube.com/@GaleLargey" target="_blank">
           <img src="https://kcemployees.com/wp-content/uploads/2019/02/youtube-logo-red.png"
-               alt="YouTube Channel"
-               class="icon"><br>
-          Visit
+               alt="Visit Gale Largey on YouTube"
+               class="icon">
         </a>
       </td>
       <td>
-        <a href="contact.html">
+        <a href="contact.html" class="contact-link">
           Contact
         </a>
       </td>
@@ -177,4 +182,18 @@ h1 {
 </div>
 
 <script>
-document.query
+document.querySelectorAll("a").forEach(link => {
+  if (link.hostname === window.location.hostname) {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location = this.href;
+      }, 350);
+    });
+  }
+});
+</script>
+
+</body>
+</html>
