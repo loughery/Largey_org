@@ -10,7 +10,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Script-style quote font (not italic) -->
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 
 <style>
 
@@ -50,12 +52,12 @@ body {
   display:grid;
   grid-template-rows:25vh 75vh;
   text-align:center;
-  line-height:1.75;
+  line-height:1.7;
   opacity:0;
   animation: pageFade .7s ease forwards;
 }
 
-/* ===== QUOTE ===== */
+/* ===== SCRIPT QUOTE ===== */
 
 .quote-half {
   display:flex;
@@ -67,21 +69,19 @@ body {
 }
 
 .quote {
-  font-family:"Cormorant Garamond", serif;
-  font-size:clamp(1.25rem,2.2vw,1.7rem);
+  font-family: 'Marck Script', cursive;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   color:#7c7568;
-  letter-spacing:0.04em;
-  line-height:1.55;
+  line-height:1.6;
   position:relative;
-  display:inline-block;
 }
 
 .quote::before {
   content:"“";
   position:absolute;
-  left:-28px;
-  top:-20px;
-  font-size:3rem;
+  left:-26px;
+  top:-10px;
+  font-size:2.6rem;
   color:#c7bda7;
 }
 
@@ -97,7 +97,7 @@ body {
   animation-delay:2.7s;
 }
 
-/* ===== PORTRAIT ===== */
+/* ===== PORTRAIT + SIGNATURE ===== */
 
 .portrait-wrapper {
   position:relative;
@@ -115,43 +115,40 @@ body {
 
 @keyframes kenburns {
   from { transform:scale(1); }
-  to { transform:scale(1.06); }
+  to { transform:scale(1.05); }
 }
 
-/* ===== SIGNATURE ===== */
-
+/* Signature styling */
 .signature {
   position:absolute;
-  bottom:-18px;
-  right:-30px;
+  bottom:-8px;          /* touching image */
+  right:-20px;          /* slightly right of center */
   transform:rotate(-6deg);
+  font-family: 'Marck Script', cursive;
+  font-size:2.3rem;
+  color:#3b3226;
   opacity:.9;
   filter:blur(.2px);
+  overflow:hidden;
+  white-space:nowrap;
+  width:0;
+  animation: write 3s ease forwards 3.2s;
 }
 
-/* ink bleed + pencil feel */
-.signature path {
-  fill:none;
-  stroke:#3b3226;
-  stroke-width:2.2;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-dasharray:900;
-  stroke-dashoffset:900;
-  animation: sign 3.5s ease forwards 3.5s;
+/* writing animation */
+@keyframes write {
+  from { width:0; }
+  to { width:7ch; }
 }
 
 /* subtle ink shadow */
-.signature path.shadow {
-  stroke:#6a5d4a;
-  stroke-width:3;
+.signature::after {
+  content:"Largey";
+  position:absolute;
+  left:1px;
+  top:1px;
+  color:#6a5d4a;
   opacity:.15;
-  transform:translate(1px,1px);
-}
-
-/* animate writing */
-@keyframes sign {
-  to { stroke-dashoffset:0; }
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -255,18 +252,7 @@ h1 {
 
   <div class="portrait-wrapper">
     <img src="Gale line face.png" alt="Gale Largey line portrait" class="portrait">
-
-    <!-- Animated SVG Signature -->
-    <svg class="signature" width="220" height="80" viewBox="0 0 600 200">
-      <path class="shadow"
-        d="M20 140 C 90 20, 160 20, 200 140
-           C 240 200, 300 40, 360 120
-           C 400 170, 450 100, 520 140" />
-      <path
-        d="M20 140 C 90 20, 160 20, 200 140
-           C 240 200, 300 40, 360 120
-           C 400 170, 450 100, 520 140" />
-    </svg>
+    <div class="signature">Largey</div>
   </div>
 
   <div class="intro">The Historical Films of</div>
