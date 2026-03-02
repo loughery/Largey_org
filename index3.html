@@ -18,32 +18,10 @@
 
 html { background-color: #F2EBDD; }
 
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  background: radial-gradient(circle at center,
-              rgba(150,120,70,0.05),
-              rgba(90,70,40,0.08));
-  pointer-events:none;
-}
-
-body::after {
-  content:"";
-  position:fixed;
-  inset:0;
-  background: radial-gradient(ellipse at center,
-              rgba(0,0,0,0) 65%,
-              rgba(0,0,0,0.05) 100%);
-  pointer-events:none;
-}
-
-/* ===== LAYOUT ===== */
-
 body {
   margin:0;
   min-height:100vh;
-  padding-bottom:80px; /* breathing room at bottom */
+  padding-bottom:80px;
   background-color:#F2EBDD;
   font-family: Georgia, "Times New Roman", serif;
   color:#222;
@@ -60,34 +38,38 @@ body {
   align-items:center;
   justify-content:center;
   padding:3vh 12% 0 12%;
-  position:relative;
-}
-
-/* Styled quotation marks */
-.quote-half::before,
-.quote-half::after {
-  position:absolute;
-  font-size:3rem;
-  color:#d8cfbb;
-  opacity:.75;
-}
-
-.quote-half::before {
-  content:"“";
-  left:calc(50% - 200px);
-  top:10px;
-}
-
-.quote-half::after {
-  content:"”";
-  right:calc(50% - 200px);
-  bottom:0;
 }
 
 .quote {
+  position:relative;
+  display:inline-block;
   font-family:'Marck Script', cursive;
   font-size:clamp(1.4rem,2.5vw,1.9rem);
   color:#7c7568;
+  line-height:1.6;
+  padding:0 40px; /* space for quotes */
+}
+
+/* Opening quote */
+.quote::before {
+  content:"“";
+  position:absolute;
+  left:0;
+  top:-10px;
+  font-size:3rem;
+  color:#cfc5b0;
+  opacity:.9;
+}
+
+/* Closing quote */
+.quote::after {
+  content:"”";
+  position:absolute;
+  right:0;
+  bottom:-18px;
+  font-size:3rem;
+  color:#cfc5b0;
+  opacity:.9;
 }
 
 /* ===== CONTENT ===== */
@@ -99,11 +81,7 @@ body {
   padding-top:2vh;
 }
 
-/* ===== PORTRAIT (Transparent) ===== */
-
-.portrait-wrapper {
-  display:inline-block;
-}
+/* ===== PORTRAIT ===== */
 
 .portrait {
   width:clamp(150px,28vw,250px);
@@ -188,9 +166,7 @@ h1 {
 
 <div class="content-half">
 
-  <div class="portrait-wrapper">
-    <img src="Galefacedraw.png" alt="Gale Largey line portrait" class="portrait">
-  </div>
+  <img src="Galefacedraw.png" alt="Gale Largey line portrait" class="portrait">
 
   <div class="intro">The Historical Films of</div>
   <h1>Gale P. Largey, PhD</h1>
