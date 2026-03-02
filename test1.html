@@ -10,8 +10,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Script-style quote font (not italic) -->
 <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 
 <style>
@@ -30,7 +28,6 @@ body::before {
   pointer-events:none;
 }
 
-/* soft vignette */
 body::after {
   content:"";
   position:fixed;
@@ -97,7 +94,7 @@ body {
   animation-delay:2.7s;
 }
 
-/* ===== PORTRAIT + SIGNATURE ===== */
+/* ===== PORTRAIT ===== */
 
 .portrait-wrapper {
   position:relative;
@@ -118,19 +115,20 @@ body {
   to { transform:scale(1.05); }
 }
 
-/* Signature styling */
+/* ===== SIGNATURE — OVERLAPPING IMAGE ===== */
+
 .signature {
   position:absolute;
-  bottom:-8px;          /* touching image */
-  right:-20px;          /* slightly right of center */
+  bottom:12px;          /* moved UP into the image */
+  right:10px;           /* closer to center */
   transform:rotate(-6deg);
   font-family: 'Marck Script', cursive;
-  font-size:2.3rem;
+  font-size:2.4rem;
   color:#3b3226;
-  opacity:.9;
-  filter:blur(.2px);
-  overflow:hidden;
+  opacity:.92;
+  filter:blur(.15px);
   white-space:nowrap;
+  overflow:hidden;
   width:0;
   animation: write 3s ease forwards 3.2s;
 }
