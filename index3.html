@@ -13,143 +13,110 @@
 <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 
 <style>
-
-/* ===== BACKGROUND ===== */
-
 html { background-color: #F2EBDD; }
 
 body {
-  margin:0;
-  min-height:100vh;
-  padding-bottom:80px;
-  background-color:#F2EBDD;
+  margin: 0;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  background-color: #F2EBDD;
   font-family: Georgia, "Times New Roman", serif;
-  color:#222;
-  display:grid;
-  grid-template-rows:25vh auto;
-  text-align:center;
-  line-height:1.7;
+  color: #222;
+  display: grid;
+  grid-template-rows: 25vh auto;
+  text-align: center;
+  line-height: 1.7;
 }
 
-/* ===== QUOTE ===== */
-
+/* quote */
 .quote-half {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:3vh 12% 0 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 12% 0 12%;
 }
 
 .quote {
-  position:relative;
-  display:inline-block;
-  font-family:'Marck Script', cursive;
-  font-size:clamp(1.4rem,2.5vw,1.9rem);
-  color:#7c7568;
-  line-height:1.6;
+  font-family: 'Marck Script', cursive;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  color: #7c7568;
+  line-height: 1.6;
 }
 
-/* Opening quote — floating */
-.quote::before {
-  content:"“";
-  position:absolute;
-  left:-28px;
-  top:-18px;
-  font-size:3rem;
-  color:#cfc5b0;
-  opacity:.85;
-}
-
-/* Closing quote — floating */
-.quote::after {
-  content:"”";
-  position:absolute;
-  right:-24px;
-  bottom:-22px;
-  font-size:3rem;
-  color:#cfc5b0;
-  opacity:.85;
-}
-
-/* ===== CONTENT ===== */
-
+/* content */
 .content-half {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding-top:2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2vh;
 }
 
-/* ===== PORTRAIT ===== */
-
+/* portrait (transparent PNG assumed) */
 .portrait {
-  width:clamp(150px,28vw,250px);
-  opacity:1;
+  width: clamp(150px, 28vw, 250px);
+  opacity: 1;
 }
 
-/* ===== TYPOGRAPHY ===== */
-
+/* typography */
 .intro {
-  font-size:clamp(1.05rem,2vw,1.45rem);
-  color:#5a544c;
-  letter-spacing:0.14em;
-  margin-top:2rem;
-  margin-bottom:.6em;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  color: #5a544c;
+  letter-spacing: 0.14em;
+  margin-top: 2rem;
+  margin-bottom: .6em;
 }
 
 h1 {
-  font-size:clamp(1.5rem,3vw,2.6rem);
-  margin:0;
-  letter-spacing:0.04em;
-  color:#1d1a16;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  margin: 0;
+  letter-spacing: 0.04em;
+  color: #1d1a16;
 }
 
 .divider {
-  width:70px;
-  height:1px;
-  background-color:#b7ab98;
-  margin:1em auto;
+  width: 70px;
+  height: 1px;
+  background-color: #b7ab98;
+  margin: 1em auto;
 }
 
-/* ===== MATRIX LINKS ===== */
-
+/* link matrix */
 .link-grid {
-  margin-top:.6em;
-  display:grid;
-  grid-template-columns:auto auto;
-  column-gap:14px;
-  row-gap:6px;
-  align-items:center;
-  justify-content:center;
-  font-size:clamp(1.05rem,1.8vw,1.25rem);
+  margin-top: .6em;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 14px;
+  row-gap: 6px;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
 }
 
 .label {
-  text-align:right;
-  letter-spacing:.18em;
-  font-variant:small-caps;
-  color:#5b5347;
+  text-align: right;
+  letter-spacing: .18em;
+  font-variant: small-caps;
+  color: #5b5347;
 }
 
 .link-grid a {
-  text-align:left;
-  color:#304a73;
-  text-decoration:none;
-  border-bottom:1px solid transparent;
-  transition:border-color .25s ease;
+  text-align: left;
+  color: #304a73;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease;
 }
 
 .link-grid a:hover,
 .link-grid a:focus {
-  border-bottom:1px solid #304a73;
+  border-bottom: 1px solid #304a73;
 }
 
 .footer {
-  margin-top:2.8em;
-  font-size:.95rem;
-  color:#5a5246;
+  margin-top: 2.8em;
+  font-size: .95rem;
+  color: #5a5246;
 }
-
 </style>
 </head>
 
@@ -157,15 +124,15 @@ h1 {
 
 <div class="quote-half">
   <div class="quote">
-    Sometimes, when telling a story,<br>
+    “Sometimes, when telling a story,<br>
     the storyteller<br>
-    becomes a story.
+    becomes a story.”
   </div>
 </div>
 
 <div class="content-half">
 
-  <img src="Galeface_transparent_refined_v3.png" alt="Gale Largey line portrait" class="portrait">
+  <img src="Galefacedraw.png" alt="Gale Largey line portrait" class="portrait">
 
   <div class="intro">The Historical Films of</div>
   <h1>Gale P. Largey, PhD</h1>
