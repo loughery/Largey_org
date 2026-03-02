@@ -10,223 +10,232 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== WARM PARCHMENT + DEPTH ===== */
+/* ===== WARM PARCHMENT ===== */
 
 html { background-color: #F2EBDD; }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(150,120,70,0.05), rgba(90,70,40,0.08));
-  pointer-events: none;
+  content:"";
+  position:fixed;
+  inset:0;
+  background: radial-gradient(circle at center,
+              rgba(150,120,70,0.05),
+              rgba(90,70,40,0.08));
+  pointer-events:none;
 }
 
-/* soft vignette edge */
+/* soft vignette */
 body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
+  content:"";
+  position:fixed;
+  inset:0;
   background: radial-gradient(ellipse at center,
-              rgba(0,0,0,0) 55%,
+              rgba(0,0,0,0) 60%,
               rgba(0,0,0,0.06) 100%);
-  pointer-events: none;
+  pointer-events:none;
 }
 
 /* ===== LAYOUT ===== */
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background-color: #F2EBDD;
+  margin:0;
+  min-height:100vh;
+  background-color:#F2EBDD;
   font-family: Georgia, "Times New Roman", serif;
-  color: #222;
-  display: grid;
-  grid-template-rows: 25vh 75vh;
-  text-align: center;
-  line-height: 1.75;
-  letter-spacing: 0.01em;
-  opacity: 0;
+  color:#222;
+  display:grid;
+  grid-template-rows:25vh 75vh;
+  text-align:center;
+  line-height:1.75;
+  opacity:0;
   animation: pageFade .7s ease forwards;
 }
 
 /* ===== QUOTE ===== */
 
 .quote-half {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3vh 12% 0 12%;
-  opacity: 0;
-  animation: fadeIn 2.5s ease forwards;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3vh 12% 0 12%;
+  opacity:0;
+  animation:fadeIn 2.5s ease forwards;
 }
 
 .quote {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
-  color: #7c7568;
-  letter-spacing: 0.04em;
-  line-height: 1.55;
-  position: relative;
-  display: inline-block;
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(1.25rem,2.2vw,1.7rem);
+  color:#7c7568;
+  letter-spacing:0.04em;
+  line-height:1.55;
+  position:relative;
+  display:inline-block;
 }
 
-/* oversized opening quote */
 .quote::before {
-  content: "“";
-  position: absolute;
-  left: -28px;
-  top: -20px;
-  font-size: 3rem;
-  color: #c7bda7;
-}
-
-/* faint closing quote */
-.quote::after {
-  content: "”";
-  position: absolute;
-  right: -24px;
-  bottom: -18px;
-  font-size: 2.2rem;
-  color: #d8cfbb;
-}
-
-/* poetic stagger */
-.quote span:nth-child(2) {
-  display: block;
-  margin-left: 14px;
-}
-.quote span:nth-child(3) {
-  display: block;
-  margin-left: 32px;
+  content:"“";
+  position:absolute;
+  left:-28px;
+  top:-20px;
+  font-size:3rem;
+  color:#c7bda7;
 }
 
 /* ===== CONTENT ===== */
 
 .content-half {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 1vh;
-  opacity: 0;
-  animation: fadeIn 2.5s ease forwards;
-  animation-delay: 2.7s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:1vh;
+  opacity:0;
+  animation:fadeIn 2.5s ease forwards;
+  animation-delay:2.7s;
 }
 
 /* ===== PORTRAIT ===== */
 
+.portrait-wrapper {
+  position:relative;
+  display:inline-block;
+}
+
 .portrait {
-  width: clamp(150px, 28vw, 250px);
-  margin-bottom: .7rem;
-  opacity: .85;
-  filter: sepia(14%) contrast(95%) brightness(98%);
-  animation: fadeInPortrait 2s ease forwards,
-             kenburns 18s ease-in-out infinite alternate;
-  animation-delay: 2.2s, 3s;
+  width:clamp(150px,28vw,250px);
+  opacity:.85;
+  filter:sepia(14%) contrast(95%) brightness(98%);
+  animation:fadeInPortrait 2s ease forwards,
+            kenburns 18s ease-in-out infinite alternate;
+  animation-delay:2.2s,3s;
 }
 
 @keyframes kenburns {
-  from { transform: scale(1); }
-  to   { transform: scale(1.06); }
+  from { transform:scale(1); }
+  to { transform:scale(1.06); }
+}
+
+/* ===== SIGNATURE ===== */
+
+.signature {
+  position:absolute;
+  bottom:-18px;
+  right:-30px;
+  transform:rotate(-6deg);
+  opacity:.9;
+  filter:blur(.2px);
+}
+
+/* ink bleed + pencil feel */
+.signature path {
+  fill:none;
+  stroke:#3b3226;
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:900;
+  stroke-dashoffset:900;
+  animation: sign 3.5s ease forwards 3.5s;
+}
+
+/* subtle ink shadow */
+.signature path.shadow {
+  stroke:#6a5d4a;
+  stroke-width:3;
+  opacity:.15;
+  transform:translate(1px,1px);
+}
+
+/* animate writing */
+@keyframes sign {
+  to { stroke-dashoffset:0; }
 }
 
 /* ===== TYPOGRAPHY ===== */
 
 .intro {
-  font-size: clamp(1.05rem, 2vw, 1.45rem);
-  color: #5a544c;
-  letter-spacing: 0.14em;
-  margin-bottom: .6em;
+  font-size:clamp(1.05rem,2vw,1.45rem);
+  color:#5a544c;
+  letter-spacing:0.14em;
+  margin-top:2.2rem;
+  margin-bottom:.6em;
 }
 
 h1 {
-  font-size: clamp(1.5rem, 3vw, 2.6rem);
-  margin: 0;
-  letter-spacing: 0.04em;
-  color: #1d1a16;
+  font-size:clamp(1.5rem,3vw,2.6rem);
+  margin:0;
+  letter-spacing:0.04em;
+  color:#1d1a16;
 }
 
 .divider {
-  width: 70px;
-  height: 1px;
-  background-color: #b7ab98;
-  margin: 1em auto;
+  width:70px;
+  height:1px;
+  background-color:#b7ab98;
+  margin:1em auto;
 }
 
 /* ===== MATRIX LINKS ===== */
 
 .link-grid {
-  margin-top: .6em;
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 14px;
-  row-gap: 6px;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  margin-top:.6em;
+  display:grid;
+  grid-template-columns:auto auto;
+  column-gap:14px;
+  row-gap:6px;
+  align-items:center;
+  justify-content:center;
+  font-size:clamp(1.05rem,1.8vw,1.25rem);
 }
 
 .label {
-  text-align: right;
-  letter-spacing: .18em;
-  font-variant: small-caps;
-  color: #5b5347;
+  text-align:right;
+  letter-spacing:.18em;
+  font-variant:small-caps;
+  color:#5b5347;
 }
 
-/* accessible hover underline */
 .link-grid a {
-  text-align: left;
-  color: #304a73;
-  text-decoration: none;
-  position: relative;
+  text-align:left;
+  color:#304a73;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease;
 }
 
-.link-grid a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 1px;
-  background: #304a73;
-  transition: width .25s ease;
-}
-
-.link-grid a:hover::after,
-.link-grid a:focus::after {
-  width: 100%;
+.link-grid a:hover,
+.link-grid a:focus {
+  border-bottom:1px solid #304a73;
 }
 
 .footer {
-  margin-top: 2.4em;
-  font-size: .95rem;
-  color: #5a5246;
+  margin-top:2.4em;
+  font-size:.95rem;
+  color:#5a5246;
 }
 
 /* ===== ANIMATIONS ===== */
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity:0; }
+  to { opacity:1; }
 }
 
 @keyframes fadeInPortrait {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: .85; transform: translateY(0); }
+  from { opacity:0; transform:translateY(6px); }
+  to { opacity:.85; transform:translateY(0); }
 }
 
 @keyframes pageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity:0; }
+  to { opacity:1; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; }
+@media (prefers-reduced-motion:reduce) {
+  * { animation:none !important; }
 }
 
 </style>
@@ -236,15 +245,29 @@ h1 {
 
 <div class="quote-half">
   <div class="quote">
-    <span>Sometimes, when telling a story,</span>
-    <span>the storyteller</span>
-    <span>becomes a story.</span>
+    Sometimes, when telling a story,<br>
+    the storyteller<br>
+    becomes a story.”
   </div>
 </div>
 
 <div class="content-half">
 
-  <img src="Gale line face.png" alt="Gale Largey line portrait" class="portrait">
+  <div class="portrait-wrapper">
+    <img src="Gale line face.png" alt="Gale Largey line portrait" class="portrait">
+
+    <!-- Animated SVG Signature -->
+    <svg class="signature" width="220" height="80" viewBox="0 0 600 200">
+      <path class="shadow"
+        d="M20 140 C 90 20, 160 20, 200 140
+           C 240 200, 300 40, 360 120
+           C 400 170, 450 100, 520 140" />
+      <path
+        d="M20 140 C 90 20, 160 20, 200 140
+           C 240 200, 300 40, 360 120
+           C 400 170, 450 100, 520 140" />
+    </svg>
+  </div>
 
   <div class="intro">The Historical Films of</div>
   <h1>Gale P. Largey, PhD</h1>
@@ -255,7 +278,7 @@ h1 {
     <a href="https://www.youtube.com/@GaleLargey">YouTube Channel</a>
 
     <div class="label">Contact</div>
-    <a href="contact.html">Contact Page</a>
+    <a href="contact.html">Contact Gale</a>
   </div>
 
   <div class="footer">
