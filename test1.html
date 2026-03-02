@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Historical Films of Gale Largey | Official Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="The historical films of Gale Largey — reflections, storytelling, and cultural history rooted in place and memory.">
+<meta name="author" content="Gale Largey">
+<link rel="canonical" href="https://www.galelargey.org/">
+
+<link rel="preconnect" href="https://www.youtube.com">
+
+<style>
+
+/* ========= BACKGROUND & HERITAGE TONE ========= */
+
+html {
+  background-color: #F4EFE6;
+}
+
+/* subtle sepia warmth overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(140,110,60,0.06), rgba(60,45,25,0.08));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ultra-light film grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========= LAYOUT ========= */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #F4EFE6;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #222;
+  display: grid;
+  grid-template-rows: 25vh 75vh;
+  text-align: center;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  animation: pageFade .7s ease forwards;
+  position: relative;
+  z-index: 1;
+}
+
+.fade-out { opacity: 0; transition: opacity .5s ease; }
+
+/* ========= QUOTE ========= */
+
+.quote-half {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 12% 0 12%;
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards;
+}
+
+.quote {
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  font-style: italic;
+  color: #3f3a33;
+  letter-spacing: 0.04em;
+}
+
+/* ========= CONTENT ========= */
+
+.content-half {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1vh;
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards;
+  animation-delay: 2.7s;
+}
+
+/* ========= PORTRAIT ========= */
+
+.portrait {
+  width: clamp(150px, 28vw, 250px);
+  height: auto;
+  margin-bottom: .7rem;
+  opacity: .85;
+  filter: sepia(12%) contrast(95%) brightness(98%);
+  animation: fadeInPortrait 2s ease forwards,
+             kenburns 18s ease-in-out infinite alternate;
+  animation-delay: 2.2s, 3s;
+  transform-origin: center;
+}
+
+/* Ken Burns slow zoom */
+@keyframes kenburns {
+  from { transform: scale(1) translateY(0); }
+  to   { transform: scale(1.06) translateY(-4px); }
+}
+
+/* ========= TYPOGRAPHY ========= */
+
+.intro {
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  font-weight: 500;
+  color: #5a544c;
+  letter-spacing: 0.14em;
+  margin-bottom: .6em;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  margin: 0;
+  letter-spacing: 0.04em;
+  color: #1d1a16;
+}
+
+.divider {
+  width: 70px;
+  height: 1px;
+  background-color: #b7ab98;
+  margin: 1em auto;
+}
+
+/* larger, clearer links for older viewers */
+.link-line {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  margin-top: .6em;
+}
+
+.label {
+  letter-spacing: .18em;
+  font-variant: small-caps;
+  color: #5b5347;
+  margin-right: 8px;
+}
+
+a {
+  color: #304a73;
+  text-decoration: none;
+  transition: opacity .25s ease;
+}
+
+a:hover { opacity: .7; }
+
+.footer {
+  margin-top: 2.4em;
+  font-size: .95rem;
+  color: #5a5246;
+  letter-spacing: .06em;
+}
+
+/* ========= ANIMATIONS ========= */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInPortrait {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: .85; transform: translateY(0); }
+}
+
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========= ACCESSIBILITY ========= */
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+}
+
+@media print {
+  body { background: white; color: black; }
+  a { color: black; text-decoration: none; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="quote-half">
+  <div class="quote">
+    Sometimes, when telling a story,<br>
+    the storyteller<br>
+    becomes a story.
+  </div>
+</div>
+
+<div class="content-half">
+
+  <img src="Gale line face.png" alt="Gale Largey line portrait" class="portrait">
+
+  <div class="intro">The Historical Films of</div>
+  <h1>Gale P. Largey, PhD</h1>
+  <div class="divider"></div>
+
+  <div class="link-line">
+    <span class="label">Visit</span>
+    <a href="https://www.youtube.com/@GaleLargey">YouTube Channel</a>
+  </div>
+
+  <div class="link-line">
+    <span class="label">Contact</span>
+    <a href="contact.html">Contact Page</a>
+  </div>
+
+  <div class="footer">
+    galelargey.org &nbsp;&nbsp;|&nbsp;&nbsp; (c) 2026
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll("a").forEach(link => {
+  if (link.hostname === window.location.hostname) {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location = this.href;
+      }, 350);
+    });
+  }
+});
+</script>
+
+</body>
+</html>
