@@ -7,39 +7,36 @@
 
 <meta name="description" content="The historical films of Gale Largey — reflections, storytelling, and cultural history rooted in place and memory.">
 <meta name="author" content="Gale Largey">
-<link rel="canonical" href="https://www.galelargey.org/">
 
-<link rel="preconnect" href="https://www.youtube.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Literary font for quote -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ========= BACKGROUND & HERITAGE TONE ========= */
+/* ===== HERITAGE BACKGROUND ===== */
 
-html {
-  background-color: #F4EFE6;
-}
+html { background-color: #F4EFE6; }
 
-/* subtle sepia warmth overlay */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(140,110,60,0.06), rgba(60,45,25,0.08));
+  background: radial-gradient(circle at center, rgba(140,110,60,0.05), rgba(60,45,25,0.07));
   pointer-events: none;
-  z-index: 0;
 }
 
-/* ultra-light film grain */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.03'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 0;
 }
 
-/* ========= LAYOUT ========= */
+/* ===== LAYOUT ===== */
 
 body {
   margin: 0;
@@ -54,13 +51,9 @@ body {
   letter-spacing: 0.01em;
   opacity: 0;
   animation: pageFade .7s ease forwards;
-  position: relative;
-  z-index: 1;
 }
 
-.fade-out { opacity: 0; transition: opacity .5s ease; }
-
-/* ========= QUOTE ========= */
+/* ===== QUOTE ===== */
 
 .quote-half {
   display: flex;
@@ -72,13 +65,15 @@ body {
 }
 
 .quote {
-  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
-  font-style: italic;
-  color: #3f3a33;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  font-weight: 400;
+  color: #7a7468;   /* softer tone */
   letter-spacing: 0.04em;
+  line-height: 1.5;
 }
 
-/* ========= CONTENT ========= */
+/* ===== CONTENT ===== */
 
 .content-half {
   display: flex;
@@ -90,31 +85,27 @@ body {
   animation-delay: 2.7s;
 }
 
-/* ========= PORTRAIT ========= */
+/* ===== PORTRAIT ===== */
 
 .portrait {
   width: clamp(150px, 28vw, 250px);
-  height: auto;
   margin-bottom: .7rem;
   opacity: .85;
   filter: sepia(12%) contrast(95%) brightness(98%);
   animation: fadeInPortrait 2s ease forwards,
              kenburns 18s ease-in-out infinite alternate;
   animation-delay: 2.2s, 3s;
-  transform-origin: center;
 }
 
-/* Ken Burns slow zoom */
 @keyframes kenburns {
-  from { transform: scale(1) translateY(0); }
-  to   { transform: scale(1.06) translateY(-4px); }
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
 }
 
-/* ========= TYPOGRAPHY ========= */
+/* ===== TYPOGRAPHY ===== */
 
 .intro {
   font-size: clamp(1.05rem, 2vw, 1.45rem);
-  font-weight: 500;
   color: #5a544c;
   letter-spacing: 0.14em;
   margin-bottom: .6em;
@@ -134,7 +125,6 @@ h1 {
   margin: 1em auto;
 }
 
-/* larger, clearer links for older viewers */
 .link-line {
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   margin-top: .6em;
@@ -150,7 +140,6 @@ h1 {
 a {
   color: #304a73;
   text-decoration: none;
-  transition: opacity .25s ease;
 }
 
 a:hover { opacity: .7; }
@@ -159,10 +148,9 @@ a:hover { opacity: .7; }
   margin-top: 2.4em;
   font-size: .95rem;
   color: #5a5246;
-  letter-spacing: .06em;
 }
 
-/* ========= ANIMATIONS ========= */
+/* ===== ANIMATIONS ===== */
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -179,15 +167,9 @@ a:hover { opacity: .7; }
   to { opacity: 1; }
 }
 
-/* ========= ACCESSIBILITY ========= */
-
+/* accessibility */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; }
-}
-
-@media print {
-  body { background: white; color: black; }
-  a { color: black; text-decoration: none; }
 }
 
 </style>
@@ -226,20 +208,6 @@ a:hover { opacity: .7; }
   </div>
 
 </div>
-
-<script>
-document.querySelectorAll("a").forEach(link => {
-  if (link.hostname === window.location.hostname) {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      document.body.classList.add("fade-out");
-      setTimeout(() => {
-        window.location = this.href;
-      }, 350);
-    });
-  }
-});
-</script>
 
 </body>
 </html>
