@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -251,6 +251,257 @@ h1 {
   <div class="portrait-wrapper">
     <img src="Gale line face.png" alt="Gale Largey line portrait" class="portrait">
     <div class="signature">Largey</div>
+  </div>
+
+  <div class="intro">The Historical Films of</div>
+  <h1>Gale P. Largey, PhD</h1>
+  <div class="divider"></div>
+
+  <div class="link-grid">
+    <div class="label">Visit</div>
+    <a href="https://www.youtube.com/@GaleLargey">YouTube Channel</a>
+
+    <div class="label">Contact</div>
+    <a href="contact.html">Contact Gale</a>
+  </div>
+
+  <div class="footer">
+    galelargey.org &nbsp;&nbsp;|&nbsp;&nbsp; (c) 2026
+  </div>
+
+</div>
+
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Historical Films of Gale Largey | Official Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="The historical films of Gale Largey — reflections, storytelling, and cultural history rooted in place and memory.">
+<meta name="author" content="Gale Largey">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== WARM PARCHMENT ===== */
+
+html { background-color: #F2EBDD; }
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  background: radial-gradient(circle at center,
+              rgba(150,120,70,0.05),
+              rgba(90,70,40,0.08));
+  pointer-events:none;
+}
+
+body::after {
+  content:"";
+  position:fixed;
+  inset:0;
+  background: radial-gradient(ellipse at center,
+              rgba(0,0,0,0) 65%,
+              rgba(0,0,0,0.05) 100%);
+  pointer-events:none;
+}
+
+/* ===== LAYOUT ===== */
+
+body {
+  margin:0;
+  min-height:100vh;
+  background-color:#F2EBDD;
+  font-family: Georgia, "Times New Roman", serif;
+  color:#222;
+  display:grid;
+  grid-template-rows:25vh 75vh;
+  text-align:center;
+  line-height:1.7;
+  opacity:0;
+  animation: pageFade .7s ease forwards;
+}
+
+/* ===== SCRIPT QUOTE ===== */
+
+.quote-half {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3vh 12% 0 12%;
+  position:relative;
+}
+
+/* Soft matching quotation marks */
+.quote-half::before,
+.quote-half::after {
+  position:absolute;
+  font-size:2.6rem;
+  color:#d8cfbb;
+  opacity:.7;
+}
+
+.quote-half::before {
+  content:"“";
+  left:calc(50% - 180px);
+  top:18px;
+}
+
+.quote-half::after {
+  content:"”";
+  right:calc(50% - 180px);
+  bottom:10px;
+}
+
+.quote {
+  font-family: 'Marck Script', cursive;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  color:#7c7568;
+}
+
+/* ===== CONTENT ===== */
+
+.content-half {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:1vh;
+  opacity:0;
+  animation:fadeIn 2.5s ease forwards;
+  animation-delay:1.2s;
+}
+
+/* ===== PORTRAIT ===== */
+
+.portrait-wrapper {
+  position:relative;
+  display:inline-block;
+}
+
+.portrait {
+  width:clamp(150px,28vw,250px);
+  opacity:.9;
+  animation:fadeInPortrait 2s ease forwards,
+            kenburns 18s ease-in-out infinite alternate;
+  animation-delay:1.4s,3s;
+}
+
+/* NO filters applied — image remains transparent */
+
+@keyframes kenburns {
+  from { transform:scale(1); }
+  to { transform:scale(1.04); }
+}
+
+/* ===== TYPOGRAPHY ===== */
+
+.intro {
+  font-size:clamp(1.05rem,2vw,1.45rem);
+  color:#5a544c;
+  letter-spacing:0.14em;
+  margin-top:2.2rem;
+  margin-bottom:.6em;
+}
+
+h1 {
+  font-size:clamp(1.5rem,3vw,2.6rem);
+  margin:0;
+  letter-spacing:0.04em;
+  color:#1d1a16;
+}
+
+.divider {
+  width:70px;
+  height:1px;
+  background-color:#b7ab98;
+  margin:1em auto;
+}
+
+/* ===== MATRIX LINKS ===== */
+
+.link-grid {
+  margin-top:.6em;
+  display:grid;
+  grid-template-columns:auto auto;
+  column-gap:14px;
+  row-gap:6px;
+  align-items:center;
+  justify-content:center;
+  font-size:clamp(1.05rem,1.8vw,1.25rem);
+}
+
+.label {
+  text-align:right;
+  letter-spacing:.18em;
+  font-variant:small-caps;
+  color:#5b5347;
+}
+
+.link-grid a {
+  text-align:left;
+  color:#304a73;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease;
+}
+
+.link-grid a:hover,
+.link-grid a:focus {
+  border-bottom:1px solid #304a73;
+}
+
+.footer {
+  margin-top:2.4em;
+  font-size:.95rem;
+  color:#5a5246;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@keyframes fadeInPortrait {
+  from { opacity:0; transform:translateY(6px); }
+  to { opacity:.9; transform:translateY(0); }
+}
+
+@keyframes pageFade {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  * { animation:none !important; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="quote-half">
+  <div class="quote">
+    Sometimes, when telling a story,<br>
+    the storyteller<br>
+    becomes a story.
+  </div>
+</div>
+
+<div class="content-half">
+
+  <div class="portrait-wrapper">
+    <img src="Galeface.png" alt="Gale Largey line portrait" class="portrait">
   </div>
 
   <div class="intro">The Historical Films of</div>
