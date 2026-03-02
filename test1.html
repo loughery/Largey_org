@@ -11,20 +11,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Literary font for quote -->
+<!-- Literary font -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== HERITAGE BACKGROUND ===== */
+/* ===== WARMER PARCHMENT BACKGROUND ===== */
 
-html { background-color: #F4EFE6; }
+html { background-color: #F2EBDD; }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(140,110,60,0.05), rgba(60,45,25,0.07));
+  background: radial-gradient(circle at center, rgba(150,120,70,0.06), rgba(90,70,40,0.08));
   pointer-events: none;
 }
 
@@ -41,7 +41,7 @@ body::after {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #F4EFE6;
+  background-color: #F2EBDD;
   font-family: Georgia, "Times New Roman", serif;
   color: #222;
   display: grid;
@@ -66,11 +66,23 @@ body {
 
 .quote {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
   font-weight: 400;
-  color: #7a7468;   /* softer tone */
+  color: #7c7568;
   letter-spacing: 0.04em;
   line-height: 1.5;
+  position: relative;
+}
+
+/* oversized opening quotation mark */
+.quote::before {
+  content: "“";
+  position: absolute;
+  left: -28px;
+  top: -22px;
+  font-size: 3.2rem;
+  color: #c7bda7;
+  font-family: Georgia, serif;
 }
 
 /* ===== CONTENT ===== */
@@ -91,7 +103,7 @@ body {
   width: clamp(150px, 28vw, 250px);
   margin-bottom: .7rem;
   opacity: .85;
-  filter: sepia(12%) contrast(95%) brightness(98%);
+  filter: sepia(14%) contrast(95%) brightness(98%);
   animation: fadeInPortrait 2s ease forwards,
              kenburns 18s ease-in-out infinite alternate;
   animation-delay: 2.2s, 3s;
@@ -122,92 +134,4 @@ h1 {
   width: 70px;
   height: 1px;
   background-color: #b7ab98;
-  margin: 1em auto;
-}
-
-.link-line {
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  margin-top: .6em;
-}
-
-.label {
-  letter-spacing: .18em;
-  font-variant: small-caps;
-  color: #5b5347;
-  margin-right: 8px;
-}
-
-a {
-  color: #304a73;
-  text-decoration: none;
-}
-
-a:hover { opacity: .7; }
-
-.footer {
-  margin-top: 2.4em;
-  font-size: .95rem;
-  color: #5a5246;
-}
-
-/* ===== ANIMATIONS ===== */
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeInPortrait {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: .85; transform: translateY(0); }
-}
-
-@keyframes pageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* accessibility */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; }
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="quote-half">
-  <div class="quote">
-    Sometimes, when telling a story,<br>
-    the storyteller<br>
-    becomes a story.
-  </div>
-</div>
-
-<div class="content-half">
-
-  <img src="Gale line face.png" alt="Gale Largey line portrait" class="portrait">
-
-  <div class="intro">The Historical Films of</div>
-  <h1>Gale P. Largey, PhD</h1>
-  <div class="divider"></div>
-
-  <div class="link-line">
-    <span class="label">Visit</span>
-    <a href="https://www.youtube.com/@GaleLargey">YouTube Channel</a>
-  </div>
-
-  <div class="link-line">
-    <span class="label">Contact</span>
-    <a href="contact.html">Contact Page</a>
-  </div>
-
-  <div class="footer">
-    galelargey.org &nbsp;&nbsp;|&nbsp;&nbsp; (c) 2026
-  </div>
-
-</div>
-
-</body>
-</html>
+  margin: 1em
