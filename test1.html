@@ -33,8 +33,8 @@ body::after {
   position:fixed;
   inset:0;
   background: radial-gradient(ellipse at center,
-              rgba(0,0,0,0) 65%,
-              rgba(0,0,0,0.05) 100%);
+              rgba(0,0,0,0) 60%,
+              rgba(0,0,0,0.06) 100%);
   pointer-events:none;
 }
 
@@ -61,45 +61,25 @@ body {
   align-items:center;
   justify-content:center;
   padding:3vh 12% 0 12%;
-  position:relative;
-}
-
-/* Quotes fade in first */
-.quote-half::before,
-.quote-half::after {
-  position:absolute;
-  font-size:2.4rem;
-  color:#d8cfbb;           /* softer tone */
   opacity:0;
-  animation: quoteFade 2s ease forwards;
-}
-
-.quote-half::before {
-  content:"“";
-  left:calc(50% - 180px);
-  top:18px;                /* vertically balanced */
-  animation-delay: .4s;
-}
-
-.quote-half::after {
-  content:"”";
-  right:calc(50% - 180px);
-  bottom:8px;              /* slightly lower for balance */
-  animation-delay: .6s;
-}
-
-@keyframes quoteFade {
-  from { opacity:0; }
-  to { opacity:.75; }
+  animation:fadeIn 2.5s ease forwards;
 }
 
 .quote {
   font-family: 'Marck Script', cursive;
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   color:#7c7568;
-  opacity:0;
-  animation: fadeIn 2.5s ease forwards;
-  animation-delay: 1s;     /* text appears after quotes */
+  line-height:1.6;
+  position:relative;
+}
+
+.quote::before {
+  content:"“";
+  position:absolute;
+  left:-26px;
+  top:-10px;
+  font-size:2.6rem;
+  color:#c7bda7;
 }
 
 /* ===== CONTENT ===== */
@@ -111,7 +91,7 @@ body {
   padding-top:1vh;
   opacity:0;
   animation:fadeIn 2.5s ease forwards;
-  animation-delay:2.2s;
+  animation-delay:2.7s;
 }
 
 /* ===== PORTRAIT ===== */
@@ -135,28 +115,31 @@ body {
   to { transform:scale(1.05); }
 }
 
-/* ===== SIGNATURE (OVERLAPPING) ===== */
+/* ===== SIGNATURE — OVERLAPPING IMAGE ===== */
 
 .signature {
   position:absolute;
-  bottom:14px;
-  right:6px;
+  bottom:12px;          /* moved UP into the image */
+  right:10px;           /* closer to center */
   transform:rotate(-6deg);
-  font-family:'Marck Script', cursive;
+  font-family: 'Marck Script', cursive;
   font-size:2.4rem;
   color:#3b3226;
-  opacity:.9;
+  opacity:.92;
+  filter:blur(.15px);
   white-space:nowrap;
   overflow:hidden;
   width:0;
   animation: write 3s ease forwards 3.2s;
 }
 
+/* writing animation */
 @keyframes write {
   from { width:0; }
   to { width:7ch; }
 }
 
+/* subtle ink shadow */
 .signature::after {
   content:"Largey";
   position:absolute;
@@ -259,14 +242,14 @@ h1 {
   <div class="quote">
     Sometimes, when telling a story,<br>
     the storyteller<br>
-    becomes a story.
+    becomes a story.”
   </div>
 </div>
 
 <div class="content-half">
 
   <div class="portrait-wrapper">
-    <img src="Galeface.png" alt="Gale Largey line portrait" class="portrait">
+    <img src="Gale line face.png" alt="Gale Largey line portrait" class="portrait">
     <div class="signature">Largey</div>
   </div>
 
