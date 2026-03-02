@@ -21,17 +21,11 @@
 <meta name="twitter:title" content="The historical films of Gale Largey">
 <meta name="twitter:description" content="Reflections, storytelling, and cultural history rooted in place and memory.">
 
-<!-- Faster link handling -->
 <link rel="preconnect" href="https://www.youtube.com">
 
 <style>
+html { background-color: #F5F1E8; }
 
-/* prevent white flash */
-html {
-  background-color: #F5F1E8;
-}
-
-/* base layout */
 body {
   margin: 0;
   min-height: 100vh;
@@ -46,13 +40,8 @@ body {
   animation: pageFade .7s ease forwards;
 }
 
-/* page fade */
-.fade-out {
-  opacity: 0;
-  transition: opacity .5s ease;
-}
+.fade-out { opacity: 0; transition: opacity .5s ease; }
 
-/* quote section */
 .quote-half {
   display: flex;
   align-items: center;
@@ -69,12 +58,21 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* content section */
 .content-half {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 2vh;
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards;
+  animation-delay: 2.5s;
+}
+
+/* NEW: portrait image styling */
+.portrait {
+  width: clamp(90px, 18vw, 160px);
+  height: auto;
+  margin-bottom: 1rem;
   opacity: 0;
   animation: fadeIn 2.5s ease forwards;
   animation-delay: 2.5s;
@@ -119,11 +117,8 @@ a {
   transition: opacity .25s ease;
 }
 
-a:hover {
-  opacity: .7;
-}
+a:hover { opacity: .7; }
 
-/* footer */
 .footer {
   margin-top: 2.2em;
   font-size: .85rem;
@@ -131,23 +126,13 @@ a:hover {
   letter-spacing: .05em;
 }
 
-/* fade animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
 
-@keyframes pageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
 
-/* print styling */
 @media print {
   body { background: white; color: black; }
   a { color: black; text-decoration: none; }
@@ -166,6 +151,10 @@ a:hover {
 </div>
 
 <div class="content-half">
+
+  <!-- Gale portrait -->
+  <img src="Gale line face.png" alt="Gale Largey line portrait" class="portrait">
+
   <div class="intro">The Historical Films of</div>
   <h1>Gale P. Largey, PhD</h1>
   <div class="divider"></div>
@@ -186,7 +175,6 @@ a:hover {
 </div>
 
 <script>
-// subtle fade between pages
 document.querySelectorAll("a").forEach(link => {
   if (link.hostname === window.location.hostname) {
     link.addEventListener("click", function(e) {
