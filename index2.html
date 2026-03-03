@@ -40,7 +40,7 @@ body {
 
 /* ===== QUOTE ===== */
 .quote-half {
-  margin-bottom: clamp(60px, 8vh, 110px); /* reduced */
+  margin-bottom: clamp(60px, 8vh, 110px);
 }
 
 .quote {
@@ -72,11 +72,7 @@ body {
 /* ===== ARCHIVAL PORTRAIT ===== */
 .portrait {
   width: clamp(190px, 32vw, 320px);
-
-  /* reduced spacing */
-  margin-top: 0;
   margin-bottom: 2rem;
-
   filter: sepia(.25) contrast(.95);
   animation: kenburns 45s ease-in-out infinite alternate;
 }
@@ -92,7 +88,7 @@ body {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   color: #6b6255;
   letter-spacing: 0.18em;
-  margin-bottom: .6em; /* tightened */
+  margin-bottom: .6em;
 }
 
 h1 {
@@ -113,10 +109,10 @@ h1 {
   width: 100px;
   height: 1px;
   background-color: #bcae97;
-  margin: 1.6em auto; /* slightly reduced */
+  margin: 1.6em auto;
 }
 
-/* ===== VISIT / CONTACT ===== */
+/* ===== VISIT / CONTACT (MATCH FOOTER SIZE) ===== */
 .link-grid {
   margin-top: 1.8em;
   display: grid;
@@ -125,7 +121,8 @@ h1 {
   row-gap: 14px;
   align-items: center;
   justify-content: center;
-  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+
+  font-size: 1rem; /* MATCHED */
 }
 
 .label {
@@ -146,9 +143,10 @@ h1 {
   opacity: .6;
 }
 
+/* ===== FOOTER ===== */
 .footer {
   margin-top: 4.5em;
-  font-size: 1rem;
+  font-size: 1rem; /* SAME SIZE */
   color: #5f564a;
 }
 
