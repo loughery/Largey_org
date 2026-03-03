@@ -78,7 +78,6 @@ body {
   animation: fadeLine 1.6s ease forwards;
 }
 
-/* Emphasis on second line */
 .quote-line:nth-child(2) {
   font-size: 1.18em;
   color: #6f665a;
@@ -216,11 +215,30 @@ h1 {
     galelargey.org &nbsp;&nbsp;|&nbsp;&nbsp; (c) 2026
   </div>
 
-  <div class="last-update">
-    Last Updated: June 2026
-  </div>
+  <div class="last-update" id="lastUpdated"></div>
 
 </div>
+
+<script>
+(function () {
+  const options = {
+    timeZone: 'America/New_York',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  };
+
+  const formatter = new Intl.DateTimeFormat('en-US', options);
+  const now = new Date();
+  const formatted = formatter.format(now);
+
+  document.getElementById('lastUpdated').textContent =
+    "Last Updated: " + formatted + " EST";
+})();
+</script>
 
 </body>
 </html>
