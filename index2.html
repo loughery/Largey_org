@@ -30,7 +30,7 @@ body {
   color: #26221c;
   text-align: center;
   line-height: 1.9;
-  padding: clamp(110px, 17vh, 220px) 20px;
+  padding: clamp(80px, 14vh, 160px) 20px;
 }
 
 .page {
@@ -40,18 +40,14 @@ body {
 
 /* ===== QUOTE ===== */
 .quote-half {
-  margin-bottom: clamp(100px, 15vh, 180px);
+  margin-bottom: clamp(60px, 8vh, 110px); /* reduced */
 }
 
 .quote {
   font-family: 'Marck Script', cursive;
-
-  /* More controlled scaling */
   font-size: clamp(1.25rem, 4vw, 2.6rem);
-
   color: #7f7567;
   line-height: 1.75;
-
   max-width: 95%;
   margin: 0 auto;
 }
@@ -76,7 +72,11 @@ body {
 /* ===== ARCHIVAL PORTRAIT ===== */
 .portrait {
   width: clamp(190px, 32vw, 320px);
-  margin-bottom: 3.5rem;
+
+  /* reduced spacing */
+  margin-top: 0;
+  margin-bottom: 2rem;
+
   filter: sepia(.25) contrast(.95);
   animation: kenburns 45s ease-in-out infinite alternate;
 }
@@ -92,20 +92,17 @@ body {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   color: #6b6255;
   letter-spacing: 0.18em;
-  margin-bottom: 1em;
+  margin-bottom: .6em; /* tightened */
 }
 
-/* Prevent wrapping */
 h1 {
   font-size: clamp(1.5rem, 4vw, 3rem);
   margin: 0;
   letter-spacing: 0.08em;
   color: #1b1814;
-
   white-space: nowrap;
 }
 
-/* Allow smaller screens to scale instead of wrap */
 @media (max-width: 600px) {
   h1 {
     font-size: clamp(1.2rem, 5vw, 1.6rem);
@@ -116,16 +113,16 @@ h1 {
   width: 100px;
   height: 1px;
   background-color: #bcae97;
-  margin: 2em auto;
+  margin: 1.6em auto; /* slightly reduced */
 }
 
 /* ===== VISIT / CONTACT ===== */
 .link-grid {
-  margin-top: 2em;
+  margin-top: 1.8em;
   display: grid;
   grid-template-columns: minmax(auto, max-content) minmax(auto, max-content);
   column-gap: clamp(20px, 4vw, 60px);
-  row-gap: 16px;
+  row-gap: 14px;
   align-items: center;
   justify-content: center;
   font-size: clamp(0.9rem, 1.4vw, 1.05rem);
@@ -150,7 +147,7 @@ h1 {
 }
 
 .footer {
-  margin-top: 6em;
+  margin-top: 4.5em;
   font-size: 1rem;
   color: #5f564a;
 }
