@@ -29,32 +29,10 @@ body {
   padding: clamp(100px, 15vh, 200px) 24px;
 }
 
-/* ===== PAPER EDGE SHADOW WRAPPER ===== */
+/* ===== WRAPPER (NO SHADOW) ===== */
 .page {
   max-width: 900px;
   margin: 0 auto;
-  padding: clamp(60px, 8vw, 100px);
-  background: #F4E8D2;
-
-  /* Subtle mounted paper shadow */
-  box-shadow:
-    0 40px 80px rgba(0,0,0,0.10),
-    0 10px 25px rgba(0,0,0,0.06);
-
-  position: relative;
-}
-
-/* Slight paper edge gradient */
-.page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,0) 70%,
-    rgba(0,0,0,0.05) 100%
-  );
 }
 
 /* ===== QUOTE ===== */
@@ -97,17 +75,12 @@ body {
 .portrait {
   width: clamp(180px, 32vw, 300px);
   margin-bottom: 3rem;
-
   animation: kenburns 32s ease-in-out infinite alternate;
 }
 
 @keyframes kenburns {
-  from {
-    transform: scale(1) translateY(0);
-  }
-  to {
-    transform: scale(1.06) translateY(-6px);
-  }
+  from { transform: scale(1) translateY(0); }
+  to   { transform: scale(1.06) translateY(-6px); }
 }
 
 /* ===== TYPOGRAPHY ===== */
