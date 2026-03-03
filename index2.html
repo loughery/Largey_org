@@ -23,26 +23,6 @@ html {
   background-size: 4px 4px, 7px 7px;
 }
 
-/* ===== FILM DUST OVERLAY ===== */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(0,0,0,.08) 1px, transparent 2px),
-    radial-gradient(circle at 70% 60%, rgba(0,0,0,.06) 1px, transparent 2px),
-    radial-gradient(circle at 40% 80%, rgba(0,0,0,.07) 1px, transparent 2px);
-  background-size: 300px 300px;
-  animation: dustDrift 40s linear infinite;
-  opacity: .25;
-}
-
-@keyframes dustDrift {
-  from { transform: translateY(0px); }
-  to   { transform: translateY(-200px); }
-}
-
 /* ===== BASE ===== */
 body {
   margin: 0;
@@ -50,7 +30,7 @@ body {
   color: #26221c;
   text-align: center;
   line-height: 1.9;
-  padding: clamp(110px, 17vh, 220px) 24px;
+  padding: clamp(110px, 17vh, 220px) 20px;
 }
 
 .page {
@@ -60,14 +40,20 @@ body {
 
 /* ===== QUOTE ===== */
 .quote-half {
-  margin-bottom: clamp(110px, 16vh, 190px);
+  margin-bottom: clamp(100px, 15vh, 180px);
 }
 
 .quote {
   font-family: 'Marck Script', cursive;
-  font-size: clamp(1.6rem, 3vw, 2.8rem);
+
+  /* More controlled scaling */
+  font-size: clamp(1.25rem, 4vw, 2.6rem);
+
   color: #7f7567;
   line-height: 1.75;
+
+  max-width: 95%;
+  margin: 0 auto;
 }
 
 .quote-line {
@@ -96,25 +82,34 @@ body {
 }
 
 @keyframes kenburns {
-  from { transform: scale(1) translateY(0); }
-  to   { transform: scale(1.05) translateY(-8px); }
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
 }
 
 /* ===== TYPOGRAPHY ===== */
 
-/* SMALLER SECTION LINE */
 .intro {
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   color: #6b6255;
   letter-spacing: 0.18em;
   margin-bottom: 1em;
 }
 
+/* Prevent wrapping */
 h1 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.5rem, 4vw, 3rem);
   margin: 0;
   letter-spacing: 0.08em;
   color: #1b1814;
+
+  white-space: nowrap;
+}
+
+/* Allow smaller screens to scale instead of wrap */
+@media (max-width: 600px) {
+  h1 {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
 }
 
 .divider {
@@ -133,7 +128,7 @@ h1 {
   row-gap: 16px;
   align-items: center;
   justify-content: center;
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
 }
 
 .label {
