@@ -11,10 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Script font for quote -->
 <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-
-<!-- Cinematic title font -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -124,27 +121,32 @@ flex-direction:column;
 align-items:center;
 }
 
-/* top line */
+/* Responsive single-line intro */
 
 .intro{
 font-family:'Cinzel',serif;
 font-variant:small-caps;
-letter-spacing:.35em;
+letter-spacing:.28em;
 color:#6b6255;
-font-size:clamp(1.50rem,2.56vw,2.10rem);
-/* font-size:clamp(1rem,1.7vw,1.4rem); */
-margin-bottom:.5em;
-} 
 
-/* name line */
+white-space:nowrap;
+
+/* Resizes with screen width */
+font-size:clamp(16px,4.5vw,30px);
+
+margin-bottom:.5em;
+}
+
+/* Name line */
 
 h1{
 font-family:'Cinzel',serif;
 font-weight:700;
-font-size:clamp(1.8rem,4.5vw,3.2rem);
+font-size:clamp(28px,5vw,52px);
 letter-spacing:.12em;
 margin:0;
 color:#1b1814;
+white-space:nowrap;
 }
 
 /* divider */
