@@ -10,7 +10,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Script font for quote -->
 <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+
+<!-- Cinematic title font -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -111,7 +116,7 @@ from{transform:scale(1)}
 to{transform:scale(1.05)}
 }
 
-/* ===== TITLE BLOCK ===== */
+/* ===== TITLE AREA ===== */
 
 .title-block{
 display:flex;
@@ -122,24 +127,26 @@ align-items:center;
 /* top line */
 
 .intro{
+font-family:'Cinzel',serif;
+font-variant:small-caps;
+letter-spacing:.35em;
 color:#6b6255;
-letter-spacing:.18em;
-margin-bottom:.6em;
-display:inline-block;
-white-space:nowrap;
-transform-origin:center;
+font-size:clamp(1rem,1.7vw,1.4rem);
+margin-bottom:.5em;
 }
 
-/* name */
+/* name line */
 
 h1{
-font-size:clamp(1.5rem,4vw,3rem);
+font-family:'Cinzel',serif;
+font-weight:700;
+font-size:clamp(1.8rem,4.5vw,3.2rem);
+letter-spacing:.12em;
 margin:0;
-letter-spacing:.08em;
 color:#1b1814;
-white-space:nowrap;
-display:inline-block;
 }
+
+/* divider */
 
 .divider{
 width:100px;
@@ -148,7 +155,7 @@ background:#bcae97;
 margin:1.6em auto;
 }
 
-/* ===== LINKS ===== */
+/* ===== VISIT / CONTACT ===== */
 
 .link-grid{
 margin-top:1.8em;
@@ -206,9 +213,9 @@ color:#5f564a;
 
 <div class="title-block">
 
-<div id="intro" class="intro">The Historical Films of</div>
+<div class="intro">The Historical Films of</div>
 
-<h1 id="name">Gale P. Largey, PhD</h1>
+<h1>Gale P. Largey, PhD</h1>
 
 </div>
 
@@ -229,29 +236,6 @@ galelargey.org &nbsp;&nbsp;|&nbsp;&nbsp; (c) 2026
 </div>
 
 </div>
-
-<script>
-
-function matchIntroWidth(){
-
-const intro=document.getElementById("intro")
-const name=document.getElementById("name")
-
-intro.style.transform="scaleX(1)"
-
-const introWidth=intro.offsetWidth
-const nameWidth=name.offsetWidth
-
-const scale=nameWidth/introWidth
-
-intro.style.transform="scaleX("+scale+")"
-
-}
-
-window.addEventListener("load",matchIntroWidth)
-window.addEventListener("resize",matchIntroWidth)
-
-</script>
 
 </body>
 </html>
