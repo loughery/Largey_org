@@ -233,7 +233,7 @@ color:#6a6257;
 
 <div class="link-grid">
 
-<div class="label">Visit</div>
+<div class="label">Filmography</div>
 <a href="https://www.youtube.com/@GaleLargey">YouTube/@GaleLargey</a>
 
 <div class="label">In-Person</div>
@@ -255,19 +255,22 @@ const lastModified = new Date(document.lastModified);
 
 const formatter = new Intl.DateTimeFormat('en-US', {
 timeZone: 'America/New_York',
+month: 'short',
+day: '2-digit',
 year: 'numeric',
-month: 'long',
-day: 'numeric',
 hour: 'numeric',
 minute: '2-digit',
 hour12: true,
 timeZoneName: 'short'
 });
 
-const formatted = formatter.format(lastModified)
-.replace(',', ' —');
+let formatted = formatter.format(lastModified);
 
-document.getElementById("lastModified").textContent = formatted;
+/* Convert comma to em dash for style */
+formatted = formatted.replace(',', ' —');
+
+document.getElementById("lastModified").textContent =
+"Last update: " + formatted;
 
 </script>
 
