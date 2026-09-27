@@ -190,9 +190,9 @@ h1 {
 /* ===== NEW LIFE IN WELLSBORO ===== */
 
 .new-volume {
-    max-width: 700px;
+    max-width: 720px;
 
-    margin: clamp(70px, 10vh, 110px) auto 0;
+    margin: clamp(75px, 10vh, 120px) auto 0;
 }
 
 
@@ -227,7 +227,7 @@ h1 {
 
     font-weight: 700;
 
-    font-size: clamp(28px, 5vw, 44px);
+    font-size: clamp(30px, 5vw, 46px);
 
     letter-spacing: .08em;
 
@@ -246,40 +246,95 @@ h1 {
 }
 
 
+/* ===== PROJECT DESCRIPTION ===== */
+
 .new-volume p {
-    max-width: 620px;
+    max-width: 670px;
 
-    margin: 1.7em auto 2em;
+    margin: 1.7em auto 1.3em;
 
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(1.05rem, 2.5vw, 1.22rem);
 
-    line-height: 1.8;
+    line-height: 1.85;
+
+    color: #26221c;
 }
 
+
+.community-call {
+    max-width: 650px;
+
+    margin: 1.2em auto 2.4em;
+
+    font-size: clamp(1.05rem, 2.5vw, 1.22rem);
+
+    line-height: 1.85;
+
+    color: #26221c;
+}
+
+
+.community-call strong {
+    color: #000;
+}
+
+
+/* ===== PROJECT BUTTON ===== */
 
 .project-link {
     display: inline-block;
 
+    margin-top: .5em;
+
+    padding: .9em 1.6em;
+
     font-family: 'Cinzel', serif;
 
-    font-size: clamp(.9rem, 2vw, 1.05rem);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+
+    font-weight: 700;
 
     letter-spacing: .08em;
 
-    color: #3e5578;
+    color: #EADCC5;
+
+    background-color: #3e5578;
+
+    border: 2px solid #3e5578;
 
     text-decoration: none;
 
-    border-bottom: 1px solid #8b98aa;
+    box-shadow: 0 4px 10px rgba(0,0,0,.14);
 
-    padding-bottom: .2em;
-
-    transition: opacity .3s ease;
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 
 .project-link:hover {
-    opacity: .6;
+    background-color: transparent;
+
+    color: #3e5578;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 14px rgba(0,0,0,.16);
+}
+
+
+/* ===== INVITATION ===== */
+
+.visit-note {
+    margin-top: 1.2em;
+
+    font-size: .95rem;
+
+    font-style: italic;
+
+    color: #655c4f;
 }
 
 
@@ -313,9 +368,11 @@ h1 {
         padding-top: 35px;
     }
 
+
     .return-home {
         margin-bottom: 3em;
     }
+
 
     .book {
         grid-template-columns: 1fr;
@@ -323,8 +380,18 @@ h1 {
         gap: .1em;
     }
 
+
     .book-year {
         font-size: 1rem;
+    }
+
+
+    .project-link {
+        width: auto;
+
+        padding: .85em 1.15em;
+
+        letter-spacing: .05em;
     }
 
 }
@@ -488,9 +555,25 @@ Life in Wellsboro
 <p>
 
 Gale Largey is now working on a third volume in his
-<em>Life in Wellsboro</em> series, continuing the pictorial
-history of the community through the closing decades of
-the twentieth century.
+<em>Life in Wellsboro</em> series, continuing the story of
+the community from 1960 through 2000. Like the earlier
+volumes, the new book will tell that story largely through
+photographs — the people, places, celebrations, workplaces,
+schools, neighborhoods and everyday moments that made
+Wellsboro home.
+
+</p>
+
+
+<p class="community-call">
+
+This time, many of those photographs will come from the
+community itself. <strong>The history of Wellsboro is already
+in family photo albums, boxes of snapshots, 35mm slides and
+the memories of the people who lived it.</strong> Residents,
+former residents and families are invited to share photographs,
+names and stories that can help preserve what life in Wellsboro
+was really like during these four decades.
 
 </p>
 
@@ -498,9 +581,16 @@ the twentieth century.
 <a class="project-link"
    href="https://lifeinwellsboro.com">
 
-Visit LifeInWellsboro.com
+VISIT LIFEINWELLSBORO.COM
 
 </a>
+
+
+<div class="visit-note">
+
+Learn about the project and how to contribute photographs and stories.
+
+</div>
 
 
 </section>
