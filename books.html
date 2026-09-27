@@ -8,18 +8,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-      content="Books by Gale P. Largey, documenting the people, places, and history of Wellsboro and north-central Pennsylvania.">
+content="Books by Gale P. Largey, documenting the people, places, and history of Wellsboro and north-central Pennsylvania.">
 
 <meta name="author" content="Gale P. Largey">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap"
-      rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap"
-      rel="stylesheet">
+rel="stylesheet">
 
 <style>
 
@@ -44,28 +41,194 @@ body {
     color: #26221c;
 
     text-align: center;
-    line-height: 1.9;
+    line-height: 1.8;
 
-    padding: clamp(60px, 10vh, 120px) 20px 40px;
+    padding: clamp(60px, 9vh, 110px) 20px 40px;
 }
 
 .page {
     max-width: 900px;
-    min-height: calc(100vh - 160px);
-
     margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
 }
 
-/* ===== BOOK CONTENT ===== */
+/* ===== BOOKS HEADING ===== */
 
-<main class="book-content">
+.section-heading {
+    font-family: 'Cinzel', serif;
+    font-variant: small-caps;
+    letter-spacing: .28em;
+    color: #000;
+    font-size: clamp(15px, 3vw, 22px);
+    margin-bottom: .4em;
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 48px);
+    letter-spacing: .10em;
+    color: #1b1814;
+    margin: 0;
+}
+
+.divider {
+    width: 100px;
+    height: 1px;
+    background: #bcae97;
+    margin: 1.8em auto 3em;
+}
+
+/* ===== BOOK LIST ===== */
+
+.books {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.book-list {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.book {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 30px;
+    align-items: baseline;
+
+    padding: 1.05em 0;
+
+    border-bottom: 1px solid rgba(80,70,55,.18);
+}
+
+.book:first-child {
+    border-top: 1px solid rgba(80,70,55,.18);
+}
+
+.book-title {
+    font-size: clamp(1.15rem, 3vw, 1.55rem);
+    font-style: italic;
+    color: #1b1814;
+}
+
+.book-year {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #5f564a;
+}
+
+/* ===== NEW LIFE IN WELLSBORO ===== */
+
+.new-volume {
+    max-width: 700px;
+    margin: clamp(70px, 10vh, 110px) auto 0;
+}
+
+.small-divider {
+    width: 60px;
+    height: 1px;
+    background: #bcae97;
+    margin: 0 auto 2.5em;
+}
+
+.continuing {
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: .28em;
+    font-size: clamp(.8rem, 2vw, 1rem);
+    color: #655c4f;
+    margin-bottom: .8em;
+}
+
+.new-volume h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 44px);
+    letter-spacing: .08em;
+    color: #1b1814;
+    margin: 0;
+}
+
+.period {
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: #5f564a;
+    margin-top: .25em;
+}
+
+.new-volume p {
+    max-width: 620px;
+    margin: 1.7em auto 2em;
+
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.8;
+}
+
+.project-link {
+    display: inline-block;
+
+    font-family: 'Cinzel', serif;
+    font-size: clamp(.9rem, 2vw, 1.05rem);
+    letter-spacing: .08em;
+
+    color: #3e5578;
+    text-decoration: none;
+
+    border-bottom: 1px solid #8b98aa;
+    padding-bottom: .2em;
+}
+
+.project-link:hover {
+    opacity: .6;
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+    margin-top: 6em;
+    font-size: 1rem;
+    color: #5f564a;
+}
+
+.last-modified {
+    margin-top: .6em;
+    font-style: italic;
+    font-size: .95rem;
+    color: #6a6257;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding-top: 50px;
+    }
+
+    .book {
+        grid-template-columns: 1fr;
+        gap: .1em;
+    }
+
+    .book-year {
+        font-size: 1rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<main>
+
+    <!-- ===== PUBLISHED BOOKS ===== -->
 
     <section class="books">
 
         <div class="section-heading">Books by</div>
+
         <h1>Gale P. Largey</h1>
 
         <div class="divider"></div>
@@ -94,14 +257,15 @@ body {
 
             <div class="book">
                 <span class="book-title">
-                    Life at Mansfield:
-                    <span class="subtitle">A Visual Reminiscence</span>
+                    Life at Mansfield: A Visual Reminiscence
                 </span>
                 <span class="book-year">1984</span>
             </div>
 
             <div class="book">
-                <span class="book-title">Life in Wellsboro, 1920–1960</span>
+                <span class="book-title">
+                    Life in Wellsboro, 1920–1960
+                </span>
                 <span class="book-year">1988</span>
             </div>
 
@@ -109,59 +273,51 @@ body {
 
     </section>
 
-</main>
 
-.book-content {
-    flex: 1;
-}
+    <!-- ===== THIRD LIFE IN WELLSBORO VOLUME ===== -->
 
-      
-/* ===== FOOTER ===== */
+    <section class="new-volume">
 
-.footer {
-    margin-top: 4.5em;
+        <div class="small-divider"></div>
 
-    font-size: 1rem;
-    color: #5f564a;
-}
-
-/* ===== LAST MODIFIED ===== */
-
-.last-modified {
-    margin-top: .6em;
-
-    font-style: italic;
-    font-size: .95rem;
-    color: #6a6257;
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="page">
-
-    <!-- ===== BOOK CONTENT ===== -->
-
-    <main class="book-content">
-
-        <!-- Book information will go here. -->
-
-    </main>
-
-
-    <!-- ===== FOOTER ===== -->
-
-    <footer>
-
-        <div class="footer">
-            galelargey.org &nbsp;&nbsp;|&nbsp;&nbsp; © 2026
+        <div class="continuing">
+            The Story Continues
         </div>
 
-        <div class="last-modified" id="lastModified"></div>
+        <h2>Life in Wellsboro</h2>
 
-    </footer>
+        <div class="period">
+            1960–2000
+        </div>
+
+        <p>
+            Gale Largey is now working on a third volume in his
+            <em>Life in Wellsboro</em> series, continuing the pictorial
+            history of the community through the closing decades of
+            the twentieth century.
+        </p>
+
+        <a class="project-link"
+           href="https://lifeinwellsboro.com">
+            Visit LifeInWellsboro.com
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+
+    <div class="footer">
+        galelargey.org &nbsp;&nbsp;|&nbsp;&nbsp; © 2026
+    </div>
+
+    <div class="last-modified" id="lastModified"></div>
+
+</footer>
 
 </div>
 
