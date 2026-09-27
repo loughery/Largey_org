@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <title>Books by Gale Largey | Official Website</title>
@@ -18,83 +20,144 @@ content="Books by Gale P. Largey, documenting the people, places, and history of
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap"
 rel="stylesheet">
 
+
 <style>
 
 /* ===== HISTORIC PARCHMENT ===== */
 
 html {
     background-color: #EADCC5;
+
     background-image:
         radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
         radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
+
     background-size: 4px 4px, 7px 7px;
 }
+
 
 /* ===== BASE ===== */
 
 body {
     margin: 0;
+
     min-height: 100vh;
     box-sizing: border-box;
 
     font-family: Georgia, "Times New Roman", serif;
+
     color: #26221c;
 
     text-align: center;
+
     line-height: 1.8;
 
     padding: clamp(60px, 9vh, 110px) 20px 40px;
 }
+
 
 .page {
     max-width: 900px;
     margin: 0 auto;
 }
 
+
+/* ===== RETURN HOME ===== */
+
+.return-home {
+    display: block;
+
+    width: fit-content;
+
+    margin: 0 0 3.5em 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: .95rem;
+
+    letter-spacing: .03em;
+
+    color: #5f564a;
+
+    text-decoration: none;
+
+    transition: opacity .3s ease;
+}
+
+
+.return-home:hover {
+    opacity: .6;
+}
+
+
 /* ===== BOOKS HEADING ===== */
 
 .section-heading {
     font-family: 'Cinzel', serif;
+
     font-variant: small-caps;
+
     letter-spacing: .28em;
+
     color: #000;
+
     font-size: clamp(15px, 3vw, 22px);
+
     margin-bottom: .4em;
 }
 
+
 h1 {
     font-family: 'Cinzel', serif;
+
     font-weight: 700;
+
     font-size: clamp(30px, 5vw, 48px);
+
     letter-spacing: .10em;
+
     color: #1b1814;
+
     margin: 0;
 }
 
+
 .divider {
     width: 100px;
+
     height: 1px;
+
     background: #bcae97;
+
     margin: 1.8em auto 3em;
 }
+
 
 /* ===== BOOK LIST ===== */
 
 .books {
     max-width: 760px;
+
     margin: 0 auto;
 }
+
 
 .book-list {
     max-width: 700px;
+
     margin: 0 auto;
+
     text-align: left;
 }
 
+
 .book {
     display: grid;
+
     grid-template-columns: 1fr auto;
+
     gap: 30px;
+
     align-items: baseline;
 
     padding: 1.05em 0;
@@ -102,256 +165,428 @@ h1 {
     border-bottom: 1px solid rgba(80,70,55,.18);
 }
 
+
 .book:first-child {
     border-top: 1px solid rgba(80,70,55,.18);
 }
 
+
 .book-title {
     font-size: clamp(1.15rem, 3vw, 1.55rem);
+
     font-style: italic;
+
     color: #1b1814;
 }
 
+
 .book-year {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
+
     color: #5f564a;
 }
+
 
 /* ===== NEW LIFE IN WELLSBORO ===== */
 
 .new-volume {
     max-width: 700px;
+
     margin: clamp(70px, 10vh, 110px) auto 0;
 }
 
+
 .small-divider {
     width: 60px;
+
     height: 1px;
+
     background: #bcae97;
+
     margin: 0 auto 2.5em;
 }
 
+
 .continuing {
     font-family: 'Cinzel', serif;
+
     text-transform: uppercase;
+
     letter-spacing: .28em;
+
     font-size: clamp(.8rem, 2vw, 1rem);
+
     color: #655c4f;
+
     margin-bottom: .8em;
 }
 
+
 .new-volume h2 {
     font-family: 'Cinzel', serif;
+
     font-weight: 700;
+
     font-size: clamp(28px, 5vw, 44px);
+
     letter-spacing: .08em;
+
     color: #1b1814;
+
     margin: 0;
 }
 
+
 .period {
     font-size: clamp(1.3rem, 3vw, 1.7rem);
+
     color: #5f564a;
+
     margin-top: .25em;
 }
 
+
 .new-volume p {
     max-width: 620px;
+
     margin: 1.7em auto 2em;
 
     font-size: clamp(1rem, 2.5vw, 1.2rem);
+
     line-height: 1.8;
 }
+
 
 .project-link {
     display: inline-block;
 
     font-family: 'Cinzel', serif;
+
     font-size: clamp(.9rem, 2vw, 1.05rem);
+
     letter-spacing: .08em;
 
     color: #3e5578;
+
     text-decoration: none;
 
     border-bottom: 1px solid #8b98aa;
+
     padding-bottom: .2em;
+
+    transition: opacity .3s ease;
 }
+
 
 .project-link:hover {
     opacity: .6;
 }
 
+
 /* ===== FOOTER ===== */
 
 .footer {
     margin-top: 6em;
+
     font-size: 1rem;
+
     color: #5f564a;
 }
 
+
 .last-modified {
     margin-top: .6em;
+
     font-style: italic;
+
     font-size: .95rem;
+
     color: #6a6257;
 }
+
 
 /* ===== MOBILE ===== */
 
 @media (max-width: 600px) {
 
     body {
-        padding-top: 50px;
+        padding-top: 35px;
+    }
+
+    .return-home {
+        margin-bottom: 3em;
     }
 
     .book {
         grid-template-columns: 1fr;
+
         gap: .1em;
     }
 
     .book-year {
         font-size: 1rem;
     }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="page">
+
+
+<!-- ===== RETURN TO MAIN SITE ===== -->
+
+<a class="return-home"
+   href="https://galelargey.org">
+    ← Return to GaleLargey.org
+</a>
+
+
 
 <main>
 
-    <!-- ===== PUBLISHED BOOKS ===== -->
 
-    <section class="books">
+<!-- ===== PUBLISHED BOOKS ===== -->
 
-        <div class="section-heading">Books by</div>
-
-        <h1>Gale P. Largey</h1>
-
-        <div class="divider"></div>
-
-        <div class="book-list">
-
-            <div class="book">
-                <span class="book-title">Life in Roseville</span>
-                <span class="book-year">1973</span>
-            </div>
-
-            <div class="book">
-                <span class="book-title">Life in Liberty</span>
-                <span class="book-year">1974</span>
-            </div>
-
-            <div class="book">
-                <span class="book-title">Life in Morris Township</span>
-                <span class="book-year">1976</span>
-            </div>
-
-            <div class="book">
-                <span class="book-title">Life in Wellsboro, 1880–1920</span>
-                <span class="book-year">1980</span>
-            </div>
-
-            <div class="book">
-                <span class="book-title">
-                    Life at Mansfield: A Visual Reminiscence
-                </span>
-                <span class="book-year">1984</span>
-            </div>
-
-            <div class="book">
-                <span class="book-title">
-                    Life in Wellsboro, 1920–1960
-                </span>
-                <span class="book-year">1988</span>
-            </div>
-
-        </div>
-
-    </section>
+<section class="books">
 
 
-    <!-- ===== THIRD LIFE IN WELLSBORO VOLUME ===== -->
+<div class="section-heading">
+Books by
+</div>
 
-    <section class="new-volume">
 
-        <div class="small-divider"></div>
+<h1>
+Gale P. Largey
+</h1>
 
-        <div class="continuing">
-            The Story Continues
-        </div>
 
-        <h2>Life in Wellsboro</h2>
+<div class="divider"></div>
 
-        <div class="period">
-            1960–2000
-        </div>
 
-        <p>
-            Gale Largey is now working on a third volume in his
-            <em>Life in Wellsboro</em> series, continuing the pictorial
-            history of the community through the closing decades of
-            the twentieth century.
-        </p>
+<div class="book-list">
 
-        <a class="project-link"
-           href="https://lifeinwellsboro.com">
-            Visit LifeInWellsboro.com
-        </a>
 
-    </section>
+<div class="book">
+
+<span class="book-title">
+Life in Roseville
+</span>
+
+<span class="book-year">
+1973
+</span>
+
+</div>
+
+
+
+<div class="book">
+
+<span class="book-title">
+Life in Liberty
+</span>
+
+<span class="book-year">
+1974
+</span>
+
+</div>
+
+
+
+<div class="book">
+
+<span class="book-title">
+Life in Morris Township
+</span>
+
+<span class="book-year">
+1976
+</span>
+
+</div>
+
+
+
+<div class="book">
+
+<span class="book-title">
+Life in Wellsboro, 1880–1920
+</span>
+
+<span class="book-year">
+1980
+</span>
+
+</div>
+
+
+
+<div class="book">
+
+<span class="book-title">
+Life at Mansfield: A Visual Reminiscence
+</span>
+
+<span class="book-year">
+1984
+</span>
+
+</div>
+
+
+
+<div class="book">
+
+<span class="book-title">
+Life in Wellsboro, 1920–1960
+</span>
+
+<span class="book-year">
+1988
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ===== THIRD LIFE IN WELLSBORO VOLUME ===== -->
+
+<section class="new-volume">
+
+
+<div class="small-divider"></div>
+
+
+<div class="continuing">
+The Story Continues
+</div>
+
+
+<h2>
+Life in Wellsboro
+</h2>
+
+
+<div class="period">
+1960–2000
+</div>
+
+
+<p>
+
+Gale Largey is now working on a third volume in his
+<em>Life in Wellsboro</em> series, continuing the pictorial
+history of the community through the closing decades of
+the twentieth century.
+
+</p>
+
+
+<a class="project-link"
+   href="https://lifeinwellsboro.com">
+
+Visit LifeInWellsboro.com
+
+</a>
+
+
+</section>
+
 
 </main>
+
 
 
 <!-- ===== FOOTER ===== -->
 
 <footer>
 
-    <div class="footer">
-        galelargey.org &nbsp;&nbsp;|&nbsp;&nbsp; © 2026
-    </div>
 
-    <div class="last-modified" id="lastModified"></div>
+<div class="footer">
 
-</footer>
+galelargey.org
+&nbsp;&nbsp;|&nbsp;&nbsp;
+© 2026
 
 </div>
 
 
+<div class="last-modified"
+     id="lastModified">
+</div>
+
+
+</footer>
+
+
+</div>
+
+
+
 <script>
 
-const lastModified = new Date(document.lastModified);
+const lastModified =
+    new Date(document.lastModified);
 
-const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'America/New_York',
-    month: 'short',
-    day: '2-digit',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true,
-    timeZoneName: 'short'
-}).formatToParts(lastModified);
+
+const parts =
+    new Intl.DateTimeFormat(
+        'en-US',
+        {
+            timeZone: 'America/New_York',
+            month: 'short',
+            day: '2-digit',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+            timeZoneName: 'short'
+        }
+    ).formatToParts(lastModified);
+
 
 const values = {};
 
+
 parts.forEach(part => {
+
     values[part.type] = part.value;
+
 });
 
+
 const formatted =
+
     `${values.month} ${values.day}, ${values.year} — ` +
+
     `${values.hour}:${values.minute} ` +
+
     `${values.dayPeriod} ${values.timeZoneName}`;
 
-document.getElementById("lastModified").textContent =
+
+document.getElementById(
+    "lastModified"
+).textContent =
+
     "Last update: " + formatted;
+
 
 </script>
 
+
 </body>
+
 </html>
